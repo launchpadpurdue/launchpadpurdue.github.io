@@ -1,0 +1,53 @@
+.App {
+  left: 0;
+  top: 0;
+}
+
+.pageContainer {
+  margin-top: 10vh;
+}
+
+/* notification badge begins */
+.apply {
+  position: fixed;
+  border-radius: 20px;
+  right: 25px;
+  bottom: 25px;
+  width: 48px;
+  padding: 10px;
+  z-index: 15;
+  transition: all 1s ease;
+  overflow-y: hidden;
+  white-space: nowrap;
+  text-align: left;
+  border: solid 3px #7d9bc2;
+  color: #265b9e;
+  font-weight: 500;
+  background-color: white;
+}
+
+.apply:hover {
+  width: 288px;
+}
+
+.notificationBell {
+  margin-right: 10px
+}
+
+@media all and (max-width: 600px) {
+  .apply {
+    right: 3vw;
+    bottom: 3vw;
+    padding: 5px;
+  }
+
+  .apply {
+    width: 38px;
+  }
+
+  .apply:hover {
+    width: 275px;
+  }
+}
+
+/* notification badge ends */

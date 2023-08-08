@@ -1,0 +1,52 @@
+.footer {
+    padding: 30px 100px 20px 100px;
+    max-width: 1200px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20%;
+    margin: auto;
+}
+
+@media all and (max-width: 980px) {
+    .footer {
+        display: block;
+    }
+}
+
+@media all and (max-width: 568px) {
+    .footer {
+        padding: 20px;
+    }
+}
+
+.footer p {
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(100, 100, 100);
+}
+
+.footer .socials {
+    text-align: center;
+    letter-spacing: 20px;
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: rgb(100, 100, 100);
+    margin: 0 10px;
+    transition: all 1s ease;
+}
+
+.footer .instagram:hover {
+    color: #F0498F;
+}
+
+.footer .linkedIn:hover {
+    color: #0A66C2;
+}
+
+.footer .email:hover {
+    color: #ea4335;
+}

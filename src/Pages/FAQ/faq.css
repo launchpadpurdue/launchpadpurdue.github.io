@@ -1,0 +1,32 @@
+.faq .all-questions {
+    overflow: hidden;
+}
+
+.faq .title {
+    color: #265b9e;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.faq .question-box {
+    border-radius: 10px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 900px;
+    border: 5px solid #c9e2ff;
+    padding: 20px;
+    box-shadow: 8px 8px rgba(62, 120, 182, 0.05);
+    background-color: #ecf4ff;
+}
+
+.faq .question {
+    color: #265b9e;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.faq .answer {
+    margin-bottom: 0;
+}

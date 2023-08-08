@@ -1,0 +1,55 @@
+.team {
+  padding: 20px 30px;
+}
+
+.team .header {
+  margin: 30px auto 20px auto;
+  color: #265b9e;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.team .subheader {
+  text-align: center;
+  font-weight: 400;
+  max-width: 1000px;
+  margin: 0 auto 40px auto;
+}
+
+.team .teamGrid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+  gap: 20px 25px;
+  overflow: hidden;
+}
+
+.team .profile {
+  width: 170px;
+}
+
+.team .profile .headshot {
+  display: block;
+  border-radius: 50%;
+  width: 150px;
+  margin: 20px auto;
+}
+
+.team .profile .profileDescription {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.team .profile .profileDescription div {
+  margin-left: 10px;
+}
+
+.team .profile .LinkedIn {
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -1,0 +1,109 @@
+.about {
+    overflow: hidden;
+}
+.about .ourMission {
+    padding: 20px;
+}
+
+.about .ourMission h1 {
+    margin: 30px auto;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.about .ourMission .title {
+    font-weight: 800;
+    color: #265b9e;
+}
+
+.about .ourMission img {
+    display: block;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 800px;
+}
+
+.about .ourMission h2 {
+    margin: 40px auto 30px auto;
+    max-width: 600px;
+    text-transform: uppercase;
+    color: #265b9e;
+    font-weight: 600;
+}
+
+.about .ourMission p {
+    margin: 30px auto;
+    max-width: 600px;
+}
+
+.about .whyUs {
+    text-align: center;
+    background-color: #eef5ff;
+    padding: 20px;
+    color: #1a4680;
+}
+
+.about .whyUs h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.about .whyUs .icon {
+    font-size: 100px;
+}
+
+.about .whyUs p {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.about .whyUs .whyColumns {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.about .whyUs div {
+    width: 28%;
+}
+
+@media all and (max-width: 910px) {
+    .about .whyUs .whyColumns {
+        flex-direction: column;
+    }
+
+    .about .whyUs div {
+        margin: auto;
+        width: 90%;
+    }
+
+    .about .whyUs .icon {
+        margin-top: 20px;
+    }
+}
+
+.about .applyToday {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.about .applyToday button {
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 10px 30px;
+    border: none;
+    color: white;
+    background-color: #265b9e;
+    font-weight: 500;
+    font-size: 18px;
+    box-shadow: 0 5px 10px 0 rgba(113, 149, 196, 0.5);
+    transition: all 1s ease;
+}
+
+.about .applyToday button:hover {
+    background-color: #164480;
+    color: rgb(219, 206, 206);
+}

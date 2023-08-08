@@ -1,0 +1,51 @@
+.sponsors {
+    padding: 20px;
+    overflow: hidden;
+}
+
+.sponsors .title {
+    color: #265b9e;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px
+}
+
+.sponsors .background {
+    display: block;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.sponsors p {
+    margin: 40px auto 60px auto;
+    max-width: 600px;
+    font-size: 18px;
+}
+
+.prev-sponsors {
+    position: block;
+    background-color: #f6fbff;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 10px auto;
+}
+
+.prev-text {
+    padding-bottom: 20px;
+}
+
+.pic {
+    width: 100%;
+}
+
+.sponsorsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sponsorsContainer div {
+    width: 20%;
+}
