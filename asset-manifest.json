@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.7946acea.css",
-    "main.js": "/static/js/main.854a0241.js",
+    "main.css": "/static/css/main.68b36812.css",
+    "main.js": "/static/js/main.ac6f6d3e.js",
     "static/media/gallery1.jpg": "/static/media/gallery1.59d16d1a5203d8345146.jpg",
     "static/media/gallery2.jpg": "/static/media/gallery2.8184dc91764285fe3088.jpg",
     "static/media/gallery3.jpg": "/static/media/gallery3.d730a6356be7bc24eb9d.jpg",
@@ -11,11 +11,13 @@
     "static/media/sanyamehra.png": "/static/media/sanyamehra.441b6f62a63766867c9e.png",
     "static/media/jisookim.png": "/static/media/jisookim.ea101a8affec947eadd9.png",
     "static/media/shrinivasvenkatesan.png": "/static/media/shrinivasvenkatesan.d2243d810be4eb6d0e75.png",
+    "static/media/evelynchen.jpg": "/static/media/evelynchen.db672049bc5feabf2183.jpg",
     "static/media/vidyavuppala.png": "/static/media/vidyavuppala.cd77f307c4516a258ebf.png",
+    "static/media/formimage.jpg": "/static/media/formimage.1f596f25d8eb329c0de5.jpg",
     "static/media/rohanpurandare.png": "/static/media/rohanpurandare.33a70dee92864c6398c2.png",
     "static/media/seanlee.png": "/static/media/seanlee.f19f24145fbe7ddd3179.png",
     "static/media/elisemiller.png": "/static/media/elisemiller.fe742263c7d77452d596.png",
-    "static/media/att.png": "/static/media/att.185e650ff4ebbfb66a07.png",
+    "static/media/Group Picture.jpg": "/static/media/Group Picture.9ca914f9eed1fa736399.jpg",
     "static/media/nilisha.jpg": "/static/media/nilisha.cb4c5e21f9760159d0eb.jpg",
     "static/media/ishaanraja.png": "/static/media/ishaanraja.c5191a15e1233a7e1587.png",
     "static/media/ayushimohanty.png": "/static/media/ayushimohanty.89ad7f6361f0ecf8a447.png",
@@ -29,20 +31,21 @@
     "static/media/boilerhunt.jpeg": "/static/media/boilerhunt.d752d7c8f8f65027ac58.jpeg",
     "static/media/putMeOn.png": "/static/media/putMeOn.1ee9dc6beb4475bb0f72.png",
     "static/media/akshayakumar.png": "/static/media/akshayakumar.291208fa5749211c9b00.png",
+    "static/media/comcast.png": "/static/media/comcast.e1ccb3d3a74482a6225a.png",
     "static/media/josephlee.png": "/static/media/josephlee.f7b1f32a27b7ee2603b7.png",
     "static/media/josephdaugherty.png": "/static/media/josephdaugherty.8708ceebd165e843912a.png",
-    "static/media/Website.png": "/static/media/Website.d4e554c088a0aa5eb143.png",
+    "static/media/LaunchPad Icon.png": "/static/media/LaunchPad Icon.59c2117ace3c9cefec59.png",
     "static/media/bioboards.png": "/static/media/bioboards.2ee1645c7ca047a0d216.png",
     "static/media/katelynchen.jpeg": "/static/media/katelynchen.95d1057690730d35f217.jpeg",
-    "static/media/comcast.png": "/static/media/comcast.3b678db5058658838a4d.png",
-    "static/media/NorthropGrummanLogo.png": "/static/media/NorthropGrummanLogo.801c9f986ef1aae5d017.png",
-    "static/media/xtern.png": "/static/media/xtern.b6f79f6da3580484303e.png",
+    "static/media/att.png": "/static/media/att.9547a196d5638de29497.png",
+    "static/media/NorthropGrummanLogo.png": "/static/media/NorthropGrummanLogo.5f8cbba12f5ba1d70b34.png",
+    "static/media/xtern.png": "/static/media/xtern.93a75b51c760f07ddb24.png",
     "index.html": "/index.html",
-    "main.7946acea.css.map": "/static/css/main.7946acea.css.map",
-    "main.854a0241.js.map": "/static/js/main.854a0241.js.map"
+    "main.68b36812.css.map": "/static/css/main.68b36812.css.map",
+    "main.ac6f6d3e.js.map": "/static/js/main.ac6f6d3e.js.map"
   },
   "entrypoints": [
-    "static/css/main.7946acea.css",
-    "static/js/main.854a0241.js"
+    "static/css/main.68b36812.css",
+    "static/js/main.ac6f6d3e.js"
   ]
 }
