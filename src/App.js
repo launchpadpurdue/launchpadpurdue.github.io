@@ -10,7 +10,7 @@ import Sponsors from './Pages/Sponsors/Sponsors';
 import Team from './Pages/Team/Team';
 import Received from './Pages/Received/Received';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import React, { useEffect } from "react";
 import AOS from "aos";
@@ -26,24 +26,24 @@ function App() {
   }, []); // here is a site with info about the aos library: http://michalsnik.github.io/aos/
 
   return (
-    <BrowserRouter>
+    <HashRouter basename='/about'>
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/sponsors" element={<Sponsors />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/received" element={<Received />} />
+          <Route exact path="/" element={<Home />} />
+          <Route path="/#/about" element={<About />} />
+          <Route path="/#/contact" element={<Contact />} />
+          <Route path="/#/faq" element={<Faq />} />
+          <Route path="/#/sponsors" element={<Sponsors />} />
+          <Route path="/#/team" element={<Team />} />
+          <Route path="/#/received" element={<Received />} />
         </Routes>
         <Footer />
         {/* {timeout} */}
         <a href='https://youtu.be/dQw4w9WgXcQ' target="_blank"><button className='apply'><NotificationsIcon className='notificationBell' />Apply to be a LaunchPad Mentee!</button></a>
         {/*      ^^^Enter link to the application form here */}
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

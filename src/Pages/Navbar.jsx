@@ -33,11 +33,11 @@ export default function Navbar() {
 
       <div id="navRight" className="navRight">
         <ul>
-          <li><a href="/about"><button component={Link} className="signin">About</button></a></li>
-          <li><a href="/faq"><button component={Link} className="signin">FAQ</button></a></li>
-          <li><a href="/sponsors"><button component={Link} className="signin">Sponsors</button></a></li>
-          <li><a href="/team"><button component={Link} className="signin">Team</button></a></li>
-          <li><a href="/contact"><button component={Link} className="signin">Contact</button></a></li>
+          <li><a href="/#/about"><button component={Link} className="signin">About</button></a></li>
+          <li><a href="/#/faq"><button component={Link} className="signin">FAQs</button></a></li>
+          <li><a href="/#/sponsors"><button component={Link} className="signin">Sponsors</button></a></li>
+          <li><a href="/#/team"><button component={Link} className="signin">Team</button></a></li>
+          <li><a href="/#/contact"><button component={Link} className="signin">Contact</button></a></li>
         </ul>
       </div>
     </nav>
