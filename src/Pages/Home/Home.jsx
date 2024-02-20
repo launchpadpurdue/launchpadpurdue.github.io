@@ -73,7 +73,7 @@ export default function Home() {
             <h2 className="bannerTitle">LaunchPad</h2>
             <h2 className="bannerHeader">LaunchPad is an organization at Purdue that offers a one-on-one mentorship program, events, and technical project guidance to incoming students, aiming to provide them with the necessary knowledge and connections to thrive during their time here.</h2>
             {/* When we are not recruiting, comment out the entire a tag below */}
-            <a href="https://forms.gle/muSebiaceSmsNZar8" target="_blank"><button>Apply to be a mentee!</button></a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfTeYyi77Bi0RGDXG8SuAam0bVOhFkDJ2fon0nw5pNKoyjMwQ/viewform?usp=sf_link" target="_blank"><button>Apply to be a mentor!</button></a>
           </div>
           <div className="headerOne" style={{ display: `${displayOne}` }}>
             <h2 className="bannerHeader">Prior to starting their projects, mentors and mentees meet at our pairing night event to figure out who they would work best with.</h2>

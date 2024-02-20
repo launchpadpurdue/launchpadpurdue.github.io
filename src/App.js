@@ -41,7 +41,7 @@ function App() {
         <Footer />
         {/* {timeout} */}
         {/* When we are not recruiting, comment out the a tag below */}
-        <a href='https://forms.gle/muSebiaceSmsNZar8' target="_blank"><button className='apply'><NotificationsIcon className='notificationBell' />Fill out the mentee application form!</button></a>
+        <a href='https://docs.google.com/forms/d/e/1FAIpQLSfTeYyi77Bi0RGDXG8SuAam0bVOhFkDJ2fon0nw5pNKoyjMwQ/viewform?usp=sf_link' target="_blank"><button className='apply'><NotificationsIcon className='notificationBell' />Fill out the Mentor application form!</button></a>
         {/*      ^^^Enter link to the application form here */}
       </div>
     </HashRouter>

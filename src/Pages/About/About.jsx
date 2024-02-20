@@ -39,8 +39,8 @@ export default function About() {
       </div>
       {/* When we are not recruiting, comment out the div below */}
       <div className="applyToday">
-        <h3>Are you ready to join us? Fill out the mentee application form!</h3>
-        <a href="https://forms.gle/muSebiaceSmsNZar8" target="_blank"><button>Get Started</button></a>
+        <h3>Are you ready to join us? Fill out the mentor application form!</h3>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfTeYyi77Bi0RGDXG8SuAam0bVOhFkDJ2fon0nw5pNKoyjMwQ/viewform?usp=sf_link" target="_blank"><button>Get Started</button></a>
       </div>
 
     </div>
