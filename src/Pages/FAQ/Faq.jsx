@@ -11,7 +11,7 @@ export default function Faq() {
       <div className='all-questions'>
         <div className='question-box' data-aos="fade-up">
           <h2 className='question'> What is LaunchPad? </h2>
-          <p className='answer'> LaunchPad is an organization that pairs Computer Science or Data Science undergraduate students with an upperclassman mentor to network and work on a semester-long software project.</p>
+          <p className='answer'> LaunchPad is an organization that pairs underclassmen with a strong passion for computer science with upperclassmen mentors to network and work on a semester-long software project.</p>
         </div>
         <div className='question-box' data-aos="fade-up">
           <h2 className='question'> Who can join LaunchPad? </h2>
@@ -27,7 +27,7 @@ export default function Faq() {
         </div>
         <div className='question-box' data-aos="fade-up">
           <h2 className='question'> How long is the LaunchPad program?</h2>
-          <p className='answer'> LaunchPad is a semester-long program. However, feel free to finish or continue your project after Launchpad has ended.</p>
+          <p className='answer'> LaunchPad is a semester-long program. However, feel free to finish or continue your project after LaunchPad has ended.</p>
         </div>
         <div className='question-box' data-aos="fade-up">
           <h2 className='question'> How often do LaunchPad mentors and mentees meet? </h2>
@@ -35,7 +35,7 @@ export default function Faq() {
         </div>
         <div className='question-box' data-aos="fade-up">
           <h2 className='question'> What kind of events does LaunchPad organize for mentors and mentees? </h2>
-          <p className='answer'> Launchpad hosts a range of events throughout the year. They include sponsored events exclusively for LaunchPad mentors and mentees, workshops to learn new technologies, hack nights to work on your project, or game nights for fun!</p>
+          <p className='answer'> LaunchPad hosts a range of events throughout the year. They include sponsored events exclusively for LaunchPad mentors and mentees, workshops to learn new technologies, hack nights to work on your project, or game nights for fun!</p>
         </div>
 
       </div>

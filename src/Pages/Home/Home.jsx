@@ -72,13 +72,14 @@ export default function Home() {
           <div className="headerZero" style={{ display: `${displayZero}` }}>
             <h2 className="bannerTitle">LaunchPad</h2>
             <h2 className="bannerHeader">LaunchPad is an organization at Purdue that offers a one-on-one mentorship program, events, and technical project guidance to incoming students, aiming to provide them with the necessary knowledge and connections to thrive during their time here.</h2>
-            <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank"><button>Apply To Be a Mentee!</button></a>
+            {/* When we are not recruiting, comment out the entire a tag below */}
+            <a href="https://forms.gle/muSebiaceSmsNZar8" target="_blank"><button>Apply to be a mentee!</button></a>
           </div>
           <div className="headerOne" style={{ display: `${displayOne}` }}>
-            <h2 className="bannerHeader">Mentors and mentees meet for pizza and get to know each other. This social event allows us to match mentees with the perfect mentors.</h2>
+            <h2 className="bannerHeader">Prior to starting their projects, mentors and mentees meet at our pairing night event to figure out who they would work best with.</h2>
           </div>
           <div className="headerOne" style={{ display: `${displayTwo}` }}>
-            <h2 className="bannerHeader">LaunchPad mentors attend club meetings to learn how to most effectively support their mentees.</h2>
+            <h2 className="bannerHeader">Throughout the semester, we have several events that build a stronger connection between mentors and mentees and also help with projects.</h2>
           </div>
         </div>
         <div className="backgroundSlider" style={{ transform: `translateX(-${current * 100}vw)` }}>
@@ -107,7 +108,7 @@ export default function Home() {
           <div className="projDesc">
             <a href="https://github.com/visvshah/bioboards" target="_blank"><img className="github" src={githubIcon} width="30px" /></a>
             <h2>Bioboards - <i>Visv Shah</i></h2>
-            <p>BioBoards is a platform that allows users to create a custom “board” and share it through a link in their social media bio (similar to linktree or VSCO).</p>
+            <p>BioBoards is a platform that allows users to create a custom “board” and share it through a link in their social media bio (similar to Linktree or VSCO).</p>
           </div>
         </div>
 

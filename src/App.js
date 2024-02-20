@@ -26,21 +26,22 @@ function App() {
   }, []); // here is a site with info about the aos library: http://michalsnik.github.io/aos/
 
   return (
-    <HashRouter basename='/about'>
+    <HashRouter basename='/'>
       <div className="App">
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/#/about" element={<About />} />
-          <Route path="/#/contact" element={<Contact />} />
-          <Route path="/#/faq" element={<Faq />} />
-          <Route path="/#/sponsors" element={<Sponsors />} />
-          <Route path="/#/team" element={<Team />} />
-          <Route path="/#/received" element={<Received />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/sponsors" element={<Sponsors />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/received" element={<Received />} />
         </Routes>
         <Footer />
         {/* {timeout} */}
-        <a href='https://youtu.be/dQw4w9WgXcQ' target="_blank"><button className='apply'><NotificationsIcon className='notificationBell' />Apply to be a LaunchPad Mentee!</button></a>
+        {/* When we are not recruiting, comment out the a tag below */}
+        <a href='https://forms.gle/muSebiaceSmsNZar8' target="_blank"><button className='apply'><NotificationsIcon className='notificationBell' />Fill out the mentee application form!</button></a>
         {/*      ^^^Enter link to the application form here */}
       </div>
     </HashRouter>
