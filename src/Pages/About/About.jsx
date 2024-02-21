@@ -33,7 +33,7 @@ export default function About() {
           </div>
           <div>
             <InterestsIcon className="icon" />
-            <p>Attend social events with a group of like-minded indiviauls (and food!).</p>
+            <p>Attend social events with a group of like-minded individuals (and food!).</p>
           </div>
         </div>
       </div>
