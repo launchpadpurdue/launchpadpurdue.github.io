@@ -50,7 +50,8 @@
     padding: 0 30px;
     font-weight: 300;
 }
-
+/* uncomment during recruiting */
+/*
 .home .banner button {
     padding: 10px 20px;
     border-radius: 5px;
@@ -66,6 +67,20 @@
 .home .banner button:hover {
     background-color: white;
     color: black;
+}
+*/
+.home .banner .applicationBox {
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: solid 3px white;
+    background-color: transparent;
+    color: white;
+    margin-top: 7vh;
+    font-size: 25px;
+    transition: all 1s ease;
+    font-weight: 500;
+    text-wrap: nowrap;
+    cursor: default;
 }
 
 .home .headerOne {
@@ -92,6 +107,11 @@
     }
 
     .home .banner button {
+        padding: 2vw 4vw;
+        font-size: 3.5vw;
+    }
+
+    .home .banner .applicationBox {
         padding: 2vw 4vw;
         font-size: 3.5vw;
     }
