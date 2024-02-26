@@ -9,7 +9,7 @@ export default function Navbar() {
 
   return (
     <div className="footer">
-      <p>Copyright 2023 ┃ LaunchPad ┃ All rights reserved.</p>
+      <p>Copyright 2024 ┃ LaunchPad ┃ All rights reserved.</p>
       <div className='socials'>
         <a className='instagram' href="https://www.instagram.com/launchpadpurdue/" target="_blank"><InstagramIcon /></a>
         <a className='linkedIn' href="https://www.linkedin.com/company/launchpad-purdue-university/" target="_blank"><LinkedInIcon /></a>

@@ -53,3 +53,11 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.team .alumniHeader {
+  margin: 100px auto 20px auto;
+  color: #265b9e;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
