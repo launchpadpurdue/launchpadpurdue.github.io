@@ -23,6 +23,8 @@ import danieltian from './teampics/danieltian.JPG'
 import evelynchen from './teampics/evelynchen.jpg'
 import joieyeung from './teampics/joieyeung.jpg'
 import ninagruteser from './teampics/ninagruteser.jpg'
+import srushtivaidyanathan from './teampics/srushtivaidyanathan.jpg'
+import deepikaramesh from './teampics/deepikaramesh.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
@@ -212,6 +214,28 @@ export default function Team() {
               <p>Ads/Comm Team</p>
             </div>
             <a href="https://www.linkedin.com/in/nina-gruteser/" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
+          </div>
+        </div>
+
+        <div className='profile'>
+          <img src={srushtivaidyanathan} alt="Srushti Vaidyanathan" className='headshot'/>
+          <div className='profileDescription'>
+            <div>
+              <h5>Srushti Vaidyanathan</h5>
+              <p>Ads/Comm Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/srushti-vaidyanathan/" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
+          </div>
+        </div>
+
+        <div className='profile'>
+          <img src={deepikaramesh} alt="Deepika Ramesh" className='headshot'/>
+          <div className='profileDescription'>
+            <div>
+              <h5>Deepika Ramesh</h5>
+              <p>Ads/Comm Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/deepikaramesh1107?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
           </div>
         </div>
 
