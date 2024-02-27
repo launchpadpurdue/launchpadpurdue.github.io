@@ -19,7 +19,10 @@ import katelynchen from './teampics/katelynchen.jpeg'
 import arielledong from './teampics/arielledong.png'
 import sanyamehra from './teampics/sanyamehra.png'
 import jackjiang from './teampics/jackjiang.png'
+import danieltian from './teampics/danieltian.JPG'
 import evelynchen from './teampics/evelynchen.jpg'
+import joieyeung from './teampics/joieyeung.jpg'
+import ninagruteser from './teampics/ninagruteser.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
@@ -176,6 +179,39 @@ export default function Team() {
               <p>Events Team</p>
             </div>
             <a href="https://www.linkedin.com/in/visvshah/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
+          </div>
+        </div>
+
+        <div className='profile'>
+          <img src={danieltian} alt="Daniel Tian" className='headshot'/>
+          <div className='profileDescription'>
+            <div>
+              <h5>Daniel Tian</h5>
+              <p>Ads/Comm Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/danieljtian/" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
+          </div>
+        </div>
+
+        <div className='profile'>
+          <img src={joieyeung} alt="Joie Yeung" className='headshot'/>
+          <div className='profileDescription'>
+            <div>
+              <h5>Joie Yeung</h5>
+              <p>Ads/Comm Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/joie-yeung/" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
+          </div>
+        </div>
+
+        <div className='profile'>
+          <img src={ninagruteser} alt="Nina Gruteser" className='headshot'/>
+          <div className='profileDescription'>
+            <div>
+              <h5>Nina Gruteser</h5>
+              <p>Ads/Comm Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/nina-gruteser/" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
           </div>
         </div>
 
