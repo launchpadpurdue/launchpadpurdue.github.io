@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3b2956b1.css",
-    "main.js": "/static/js/main.458c534c.js",
+    "main.js": "/static/js/main.2093bfed.js",
     "static/media/gallery1.jpg": "/static/media/gallery1.59d16d1a5203d8345146.jpg",
     "static/media/gallery2.jpg": "/static/media/gallery2.8184dc91764285fe3088.jpg",
     "static/media/gallery3.jpg": "/static/media/gallery3.d730a6356be7bc24eb9d.jpg",
@@ -9,6 +9,8 @@
     "static/media/stephan.jpeg": "/static/media/stephan.f307ce86928c4db5670f.jpeg",
     "static/media/back.jpg": "/static/media/back.f441ad403c3326765fc9.jpg",
     "static/media/sanyamehra.png": "/static/media/sanyamehra.441b6f62a63766867c9e.png",
+    "static/media/danieltian.JPG": "/static/media/danieltian.d73080d84c828135b321.JPG",
+    "static/media/ninagruteser.jpg": "/static/media/ninagruteser.9d56245b8522e3d70201.jpg",
     "static/media/jisookim.png": "/static/media/jisookim.ea101a8affec947eadd9.png",
     "static/media/shrinivasvenkatesan.png": "/static/media/shrinivasvenkatesan.d2243d810be4eb6d0e75.png",
     "static/media/evelynchen.jpg": "/static/media/evelynchen.db672049bc5feabf2183.jpg",
@@ -34,6 +36,7 @@
     "static/media/comcast.png": "/static/media/comcast.e1ccb3d3a74482a6225a.png",
     "static/media/josephlee.png": "/static/media/josephlee.f7b1f32a27b7ee2603b7.png",
     "static/media/josephdaugherty.png": "/static/media/josephdaugherty.8708ceebd165e843912a.png",
+    "static/media/joieyeung.jpg": "/static/media/joieyeung.5d7724b2a483cc39ae4d.jpg",
     "static/media/LaunchPad Icon.png": "/static/media/LaunchPad Icon.59c2117ace3c9cefec59.png",
     "static/media/bioboards.png": "/static/media/bioboards.2ee1645c7ca047a0d216.png",
     "static/media/katelynchen.jpeg": "/static/media/katelynchen.95d1057690730d35f217.jpeg",
@@ -42,10 +45,10 @@
     "static/media/xtern.png": "/static/media/xtern.93a75b51c760f07ddb24.png",
     "index.html": "/index.html",
     "main.3b2956b1.css.map": "/static/css/main.3b2956b1.css.map",
-    "main.458c534c.js.map": "/static/js/main.458c534c.js.map"
+    "main.2093bfed.js.map": "/static/js/main.2093bfed.js.map"
   },
   "entrypoints": [
     "static/css/main.3b2956b1.css",
-    "static/js/main.458c534c.js"
+    "static/js/main.2093bfed.js"
   ]
 }
