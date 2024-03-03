@@ -40,14 +40,15 @@ export default function Team() {
       <div className='teamGrid'>
         
         <div className='profile'>
-          <img src={dwayneasare} alt="Dwayne Asare" className='headshot' />
-          <div className='profileDescription'>
-            <div>
-              <h5>Dwayne Asare</h5>
-              <p>President</p>
+            <img src={dwayneasare} alt="Dwayne Asare" className='headshot' />
+            <div className='profileDescription'>
+              <div className='profileText'>
+                <h5>Dwayne Asare</h5>
+                <p>President</p>
+              </div>
+              <a href="https://www.linkedin.com/in/dasare467/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
+              
             </div>
-            <a href="https://www.linkedin.com/in/dasare467/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
-          </div>
         </div>
 
         <div className='profile'>
@@ -200,7 +201,7 @@ export default function Team() {
           <div className='profileDescription'>
             <div>
               <h5>Joie Yeung</h5>
-              <p>Ads/Comm Team</p>
+              <p>Events Team</p>
             </div>
             <a href="https://www.linkedin.com/in/joie-yeung/" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
           </div>
