@@ -8,7 +8,7 @@ import gallery3 from './gallery3.jpg';
 import bioBoards from './bioboards.png';
 import boilerHunt from './boilerhunt.jpeg';
 import putMeOn from './putMeOn.png';
-import dreamsOfMidnight from './dreamsOfMidnight.png';
+import colorPalette from './colorPalette.png';
 import githubIcon from './githubIcon.png';
 import Stephan from './stephan.jpeg';
 import Shrinivas from './shrinivas.JPG';
@@ -146,14 +146,14 @@ export default function Home() {
 
         <div className='normalProj even'>
           <div className="projDesc">
-            <a href="https://github.com/joeruhe/Dreams-of-Midnight" target="_blank"><img className="github" src={githubIcon} width="30px" /></a>
-            <h2>Dreams of Midnight - <i>Joe Ruhe</i></h2>
-            <p>Dreams of Midnight is a single player adventure game with original cat designs, animations, and storyline.</p>
+            <a href="https://github.com/njsumi/Playlist-Cover-Generator" target="_blank"><img className="github" src={githubIcon} width="30px" /></a>
+            <h2>Color Palette - <i>Nina Gruteser</i></h2>
+            <p>Color Palette is a website where users can get unique playlist cover images for their playlists. The website takes a Spotify playlist URL and extracts features such as the energy, time signature, tempo, and danceability of the songs.</p>
           </div>
 
           <div className="projImageContainer">
-            <a href="https://github.com/joeruhe/Dreams-of-Midnight" target="_blank">
-              <img className="projImage" src={dreamsOfMidnight} alt="" />
+            <a href="https://github.com/njsumi/Playlist-Cover-Generator" target="_blank">
+              <img className="projImage" src={colorPalette} alt="" />
               <div className="centeredOverlay">Visit the Github Repositoty</div>
             </a>
           </div>
