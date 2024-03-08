@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.3b2956b1.css",
-    "main.js": "/static/js/main.2e4207ae.js",
+    "main.js": "/static/js/main.31471c7e.js",
     "static/media/srushtivaidyanathan.jpg": "/static/media/srushtivaidyanathan.081e04c3bcc71a766bad.jpg",
     "static/media/gallery1.jpg": "/static/media/gallery1.59d16d1a5203d8345146.jpg",
     "static/media/gallery2.jpg": "/static/media/gallery2.8184dc91764285fe3088.jpg",
     "static/media/gallery3.jpg": "/static/media/gallery3.d730a6356be7bc24eb9d.jpg",
     "static/media/deepikaramesh.jpg": "/static/media/deepikaramesh.a7d77d217921ba50a688.jpg",
+    "static/media/colorPalette.png": "/static/media/colorPalette.635e36228288afacfa57.png",
     "static/media/jackjiang.png": "/static/media/jackjiang.bb62f584ebbac9acae12.png",
     "static/media/stephan.jpeg": "/static/media/stephan.f307ce86928c4db5670f.jpeg",
     "static/media/back.jpg": "/static/media/back.f441ad403c3326765fc9.jpg",
@@ -30,7 +31,6 @@
     "static/media/aryanwadhwani.png": "/static/media/aryanwadhwani.08c2dfd7f4dbed0f4b04.png",
     "static/media/shrinivas.JPG": "/static/media/shrinivas.d33d1df9cc9df2004764.JPG",
     "static/media/joeypowers.png": "/static/media/joeypowers.a813450f0b3ef77b2da9.png",
-    "static/media/dreamsOfMidnight.png": "/static/media/dreamsOfMidnight.dd84b7f2e1c02b7f4c35.png",
     "static/media/arielledong.png": "/static/media/arielledong.73076c7528ec5fc570a3.png",
     "static/media/boilerhunt.jpeg": "/static/media/boilerhunt.d752d7c8f8f65027ac58.jpeg",
     "static/media/putMeOn.png": "/static/media/putMeOn.1ee9dc6beb4475bb0f72.png",
@@ -47,10 +47,10 @@
     "static/media/xtern.png": "/static/media/xtern.93a75b51c760f07ddb24.png",
     "index.html": "/index.html",
     "main.3b2956b1.css.map": "/static/css/main.3b2956b1.css.map",
-    "main.2e4207ae.js.map": "/static/js/main.2e4207ae.js.map"
+    "main.31471c7e.js.map": "/static/js/main.31471c7e.js.map"
   },
   "entrypoints": [
     "static/css/main.3b2956b1.css",
-    "static/js/main.2e4207ae.js"
+    "static/js/main.31471c7e.js"
   ]
 }
