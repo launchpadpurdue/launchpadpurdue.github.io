@@ -173,7 +173,7 @@ export default function Home() {
           </div>
           <div className="testimonial">
             <img src={Stephan} alt="" />
-            <h3>Stephan Feria</h3>
+            <h3>Stephen Feria</h3>
             <h5 className="participation"><i>Mentee '20, Mentor '21, '22, '23</i></h5>
             <p>LaunchPad has been an exceptional organization that has had a profound impact on me since my freshman year. The absolute best part of LaunchPad, for me, has been the opportunity to immerse myself in various projects.<br /><br />As a mentor, I relished in the chance to contemplate the high-level design decisions that went into my mentees' projects. And as a mentee myself, I experienced the entire design process, from its inception to its completion, while being guided by a talented mentor. In both roles, I derived immense satisfaction from working on diverse projects that spanned across various realms of computer science.</p>
           </div>
