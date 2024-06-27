@@ -25,6 +25,7 @@ import joieyeung from './teampics/joieyeung.jpg'
 import ninagruteser from './teampics/ninagruteser.jpg'
 import srushtivaidyanathan from './teampics/srushtivaidyanathan.jpg'
 import deepikaramesh from './teampics/deepikaramesh.jpg'
+import alexliu from './teampics/alexliu.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
@@ -109,17 +110,6 @@ export default function Team() {
         </div>
 
         <div className='profile'>
-          <img src={vidyavuppala} alt="Vidya Vuppala" className='headshot' />
-          <div className='profileDescription'>
-            <div>
-              <h5>Vidya Vuppala</h5>
-              <p>Ads/Comm Team</p>
-            </div>
-            <a href="https://www.linkedin.com/in/vidya-vuppala/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
-          </div>
-        </div>
-
-        <div className='profile'>
           <img src={ayushimohanty} alt="Ayushi Mohanty" className='headshot' />
           <div className='profileDescription'>
             <div>
@@ -127,28 +117,6 @@ export default function Team() {
               <p>Events Team</p>
             </div>
             <a href="https://www.linkedin.com/in/ayushi-mohanty-20a9181b1/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
-          </div>
-        </div>
-
-        <div className='profile'>
-          <img src={rohanpurandare} alt="Rohan Purandare" className='headshot' />
-          <div className='profileDescription'>
-            <div>
-              <h5>Rohan Purandare</h5>
-              <p>Ads/Comm Team</p>
-            </div>
-            <a href="https://www.linkedin.com/in/rohanpurandare/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
-          </div>
-        </div>
-
-        <div className='profile'>
-          <img src={joeypowers} alt="Joey Powers" className='headshot' />
-          <div className='profileDescription'>
-            <div>
-              <h5>Joey Powers</h5>
-              <p>Ads/Comm Team</p>
-            </div>
-            <a href="https://www.linkedin.com/in/joeyjpowers/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
           </div>
         </div>
 
@@ -195,15 +163,15 @@ export default function Team() {
             <a href="https://www.linkedin.com/in/danieljtian/" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
           </div>
         </div>
-
+        
         <div className='profile'>
-          <img src={joieyeung} alt="Joie Yeung" className='headshot'/>
+          <img src={alexliu} alt="Alex Liu" className='headshot' />
           <div className='profileDescription'>
             <div>
-              <h5>Joie Yeung</h5>
-              <p>Events Team</p>
+              <h5>Alex Liu</h5>
+              <p>Ads/Comm Team</p>
             </div>
-            <a href="https://www.linkedin.com/in/joie-yeung/" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
+            <a href="https://www.linkedin.com/in/alexxliu/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
           </div>
         </div>
 
@@ -239,6 +207,17 @@ export default function Team() {
             <a href="https://www.linkedin.com/in/deepikaramesh1107?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
           </div>
         </div>
+
+        {/* <div className='profile'>
+          <img src={maggiegao} alt="Maggie Gao" className='headshot' />
+          <div className='profileDescription'>
+            <div>
+              <h5>Maggie Gao</h5>
+              <p>Events Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
+          </div>
+        </div> */}
 
         <div className='profile'>
           <img src={evelynchen} alt="Evelyn Chen" className='headshot' />
@@ -311,6 +290,50 @@ export default function Team() {
               <h5>Jisoo Kim</h5>
             </div>
             <a href="https://www.linkedin.com/in/jisoo-kim-1891991a9/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
+          </div>
+        </div>
+
+        <div className='profile'>
+          <img src={joeypowers} alt="Joey Powers" className='headshot' />
+          <div className='profileDescription'>
+            <div>
+              <h5>Joey Powers</h5>
+              <p>Ads/Comm Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/joeyjpowers/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
+          </div>
+        </div>
+
+        <div className='profile'>
+          <img src={rohanpurandare} alt="Rohan Purandare" className='headshot' />
+          <div className='profileDescription'>
+            <div>
+              <h5>Rohan Purandare</h5>
+              <p>Ads/Comm Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/rohanpurandare/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
+          </div>
+        </div>
+
+        <div className='profile'>
+          <img src={vidyavuppala} alt="Vidya Vuppala" className='headshot' />
+          <div className='profileDescription'>
+            <div>
+              <h5>Vidya Vuppala</h5>
+              <p>Ads/Comm Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/vidya-vuppala/" target="_blank"><LinkedInIcon className="LinkedIn" /></a>
+          </div>
+        </div>
+
+        <div className='profile'>
+          <img src={joieyeung} alt="Joie Yeung" className='headshot'/>
+          <div className='profileDescription'>
+            <div>
+              <h5>Joie Yeung</h5>
+              <p>Events Team</p>
+            </div>
+            <a href="https://www.linkedin.com/in/joie-yeung/" target="_blank"><LinkedInIcon className="LinkedIn"/></a>
           </div>
         </div>
 
