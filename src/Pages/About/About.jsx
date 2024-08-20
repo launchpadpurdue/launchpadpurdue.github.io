@@ -38,16 +38,13 @@ export default function About() {
         </div>
       </div>
       {/* When we are not recruiting, comment out the div below */}
-      {/*
-      <div className="applyToday">
-        <h3>Are you ready to join us? Fill out the mentor application form!</h3>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfTeYyi77Bi0RGDXG8SuAam0bVOhFkDJ2fon0nw5pNKoyjMwQ/viewform?usp=sf_link" target="_blank"><button>Get Started</button></a>
-      </div>
-      */}
       
       <div className="applyToday">
-        <h3>Are you ready to join us? Mentee applications open in Fall!</h3>
+        <h3>Are you ready to join us? Fill out the mentee application form!</h3>
+        <a href="https://forms.gle/SHWpxka2bq4numTV8" target="_blank"><button>Get Started</button></a>
       </div>
+    
+    
     </div>
   )
 }

@@ -50,8 +50,7 @@
     padding: 0 30px;
     font-weight: 300;
 }
-/* uncomment during recruiting */
-/*
+
 .home .banner button {
     padding: 10px 20px;
     border-radius: 5px;
@@ -68,7 +67,7 @@
     background-color: white;
     color: black;
 }
-*/
+
 .home .banner .applicationBox {
     padding: 15px 20px;
     border-radius: 5px;
