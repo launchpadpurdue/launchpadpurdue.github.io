@@ -293,7 +293,7 @@ export default function Team() {
             <div>
               <h5>Oki Sugiyama</h5>
             </div>
-            <a href="" target="_blank">
+            <a href="https://www.linkedin.com/in/oki-sugiyama634/" target="_blank">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
