@@ -27,6 +27,7 @@ import srushtivaidyanathan from "./teampics/srushtivaidyanathan.jpg";
 import deepikaramesh from "./teampics/deepikaramesh.jpg";
 import alexliu from "./teampics/alexliu.jpg";
 import okisugiyama from "./teampics/okisugiyama.png";
+import nickwu from "./teampics/nickwu.png"
 import "bootstrap/dist/css/bootstrap.min.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -306,7 +307,7 @@ export default function Team() {
             <div>
               <h5>Nick Wu</h5>
             </div>
-            <a href="" target="_blank">
+            <a href="https://www.linkedin.com/in/nick-wu5/" target="_blank">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
