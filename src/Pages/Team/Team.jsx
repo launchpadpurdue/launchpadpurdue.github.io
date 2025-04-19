@@ -28,6 +28,7 @@ import deepikaramesh from "./teampics/deepikaramesh.jpg";
 import alexliu from "./teampics/alexliu.jpg";
 import okisugiyama from "./teampics/okisugiyama.png";
 import nickwu from "./teampics/nickwu.png"
+import celinaliu from "./teampics/celinaliu.png"
 import "bootstrap/dist/css/bootstrap.min.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -281,7 +282,7 @@ export default function Team() {
             <div>
               <h5>Celina Liu</h5>
             </div>
-            <a href="" target="_blank">
+            <a href="https://www.linkedin.com/in/celina-liuu/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
