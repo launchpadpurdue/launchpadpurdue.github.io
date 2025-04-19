@@ -29,6 +29,8 @@ import alexliu from "./teampics/alexliu.jpg";
 import okisugiyama from "./teampics/okisugiyama.png";
 import nickwu from "./teampics/nickwu.png"
 import celinaliu from "./teampics/celinaliu.png"
+import amyguo from "./teampics/amyguo.png"
+import melindayong from "./teampics/melindayong.png"
 import "bootstrap/dist/css/bootstrap.min.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -262,20 +264,18 @@ export default function Team() {
           </div>
         </div>
 
-        {/* This is for Amy Guo*/}
         <div className="profile">
           <img src={amyguo} alt="Amy Guo" className="headshot" />
           <div className="profileDescription">
             <div>
               <h5>Amy Guo</h5>
             </div>
-            <a href="" target="_blank">
+            <a href="https://www.linkedin.com/in/congyan-amy-guo/" target="_blank">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
         </div>
 
-        {/* This is for Celina Liu*/}
         <div className="profile">
           <img src={celinaliu} alt="Celina Liu" className="headshot" />
           <div className="profileDescription">
@@ -288,7 +288,6 @@ export default function Team() {
           </div>
         </div>
 
-        {/* This is for  Oki Sugiyama*/}
         <div className="profile">
           <img src={okisugiyama} alt="Oki Sugiyama" className="headshot" />
           <div className="profileDescription">
@@ -301,7 +300,6 @@ export default function Team() {
           </div>
         </div>
 
-        {/* This is for  Nick Wu*/}
         <div className="profile">
           <img src={nickwu} alt="Nick Wu" className="headshot" />
           <div className="profileDescription">
@@ -314,14 +312,13 @@ export default function Team() {
           </div>
         </div>
 
-        {/* This is for Melinda Yong*/}
         <div className="profile">
           <img src={melindayong} alt="Melinda Yong" className="headshot" />
           <div className="profileDescription">
             <div>
               <h5>Melinda Yong</h5>
             </div>
-            <a href="" target="_blank">
+            <a href="https://www.linkedin.com/in/melindayong/" target="_blank">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
