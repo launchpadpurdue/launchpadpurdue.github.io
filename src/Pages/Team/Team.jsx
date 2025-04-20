@@ -27,11 +27,11 @@ import srushtivaidyanathan from "./teampics/srushtivaidyanathan.jpg";
 import deepikaramesh from "./teampics/deepikaramesh.jpg";
 import alexliu from "./teampics/alexliu.jpg";
 import okisugiyama from "./teampics/okisugiyama.png";
-import nickwu from "./teampics/nickwu.png"
-import celinaliu from "./teampics/celinaliu.png"
-import amyguo from "./teampics/amyguo.png"
-import melindayong from "./teampics/melindayong.png"
-import nathancho from "./teampics/nathancho.png"
+import nickwu from "./teampics/nickwu.png";
+import celinaliu from "./teampics/celinaliu.png";
+import amyguo from "./teampics/amyguo.png";
+import melindayong from "./teampics/melindayong.png";
+import nathancho from "./teampics/nathancho.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -270,7 +270,10 @@ export default function Team() {
             <div>
               <h5>Amy Guo</h5>
             </div>
-            <a href="https://www.linkedin.com/in/congyan-amy-guo/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/congyan-amy-guo/"
+              target="_blank"
+            >
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -282,7 +285,10 @@ export default function Team() {
             <div>
               <h5>Celina Liu</h5>
             </div>
-            <a href="https://www.linkedin.com/in/celina-liuu/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/celina-liuu/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+              target="_blank"
+            >
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -294,7 +300,10 @@ export default function Team() {
             <div>
               <h5>Oki Sugiyama</h5>
             </div>
-            <a href="https://www.linkedin.com/in/oki-sugiyama634/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/oki-sugiyama634/"
+              target="_blank"
+            >
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -466,24 +475,20 @@ export default function Team() {
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
+        </div>
 
-          <div className="profile">
-            <img
-              src={ayushimohanty}
-              alt="Ayushi Mohanty"
-              className="headshot"
-            />
-            <div className="profileDescription">
-              <div>
-                <h5>Ayushi Mohanty</h5>
-              </div>
-              <a
-                href="https://www.linkedin.com/in/ayushi-mohanty-20a9181b1/"
-                target="_blank"
-              >
-                <LinkedInIcon className="LinkedIn" />
-              </a>
+        <div className="profile">
+          <img src={ayushimohanty} alt="Ayushi Mohanty" className="headshot" />
+          <div className="profileDescription">
+            <div>
+              <h5>Ayushi Mohanty</h5>
             </div>
+            <a
+              href="https://www.linkedin.com/in/ayushi-mohanty-20a9181b1/"
+              target="_blank"
+            >
+              <LinkedInIcon className="LinkedIn" />
+            </a>
           </div>
         </div>
         <div className="profile">
