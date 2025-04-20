@@ -252,7 +252,6 @@ export default function Team() {
           </div>
         </div>
 
-        {/* This is for Nathan Cho*/}
         <div className="profile">
           <img src={nathancho} alt="Nathan Cho" className="headshot" />
           <div className="profileDescription">
