@@ -57,7 +57,7 @@
     border: solid 3px white;
     background-color: transparent;
     color: white;
-    margin-top: 7vh;
+    margin-top: 10px;
     font-size: 25px;
     transition: all 1s ease;
     font-weight: 500;
@@ -341,5 +341,134 @@
         display: block;
         text-align: center;
         width: 100%;
+    }
+}
+
+/* Callout Box  */
+.home .calloutBox {
+    padding: 20px 30px;
+    margin: 20px 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.home .calloutContent {
+    text-align: center;
+}
+
+.home .calloutTitle {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin: 0;
+}
+
+.home .calloutSubtitle {
+    color: white;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 5px 0 10px 0;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.home .calloutDates {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    margin-top: 5px;
+}
+
+.home .date {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.1em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    text-align: center;
+    position: relative;
+    margin: 0 0;
+}
+
+.home .date:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.home .date:active {
+    transform: translateY(-1px);
+}
+
+.home .separator {
+    color: white;
+    font-weight: bold;
+    font-size: 1.8em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+@media all and (max-width: 768px) {
+    .home .calloutDates {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .home .separator {
+        font-size: 1.4em;
+        height: auto;
+        margin: 0;
+        transform: none;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .home .calloutBox {
+        padding: 15px 20px;
+        margin: 15px 0;
+    }
+    
+    .home .calloutTitle {
+        font-size: 1.4em;
+    }
+    
+    .home .calloutSubtitle {
+        font-size: 0.9em;
+        margin: 3px 0 8px 0;
+    }
+    
+    .home .calloutDates {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .home .date {
+        padding: 10px 18px;
+        font-size: 1em;
+        min-width: 120px;
+    }
+    
+    .home .separator {
+        font-size: 1.4em;
+        height: auto;
+        margin: 0;
+        transform: none;
     }
 }

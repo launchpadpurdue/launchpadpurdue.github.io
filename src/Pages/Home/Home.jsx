@@ -29,6 +29,29 @@ export default function Home() {
 
   const [current, changeCurrent] = useState(0);
 
+  const generateCalendarUrl = (date, title) => {
+    const eventDate = new Date(date);
+    const dateString = eventDate.toISOString().split('T')[0].replace(/-/g, '');
+    
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${dateString}/${dateString}&details=${encodeURIComponent('LaunchPad Mentee Callout - Learn more about our mentorship program! Time and location details will be provided closer to the event.')}&location=${encodeURIComponent('Purdue University')}`;
+    
+    return googleCalendarUrl;
+  };
+
+  const addToCalendar = (dateStr) => {
+    const currentYear = new Date().getFullYear();
+    let eventDate;
+    
+    if (dateStr === 'August 28th') {
+      eventDate = `${currentYear}-08-28`;
+    } else if (dateStr === 'September 2nd') {
+      eventDate = `${currentYear}-09-02`;
+    }
+    
+    const calendarUrl = generateCalendarUrl(eventDate, `LaunchPad Mentee Callout - ${dateStr}`);
+    window.open(calendarUrl, '_blank');
+  };
+
   if (current === 0) {
     displayZero = "block";
     displayOne = "none";
@@ -72,7 +95,18 @@ export default function Home() {
           <div className="headerZero" style={{ display: `${displayZero}` }}>
             <h2 className="bannerTitle">LaunchPad</h2>
             <h2 className="bannerHeader">LaunchPad is an organization at Purdue that offers a one-on-one mentorship program, events, and technical project guidance to incoming students, aiming to provide them with the necessary knowledge and connections to thrive during their time here.</h2>
-            <a href="https://forms.gle/SHWpxka2bq4numTV8" target="_blank"><button>Apply to be a mentee!</button></a>
+            <div className="calloutBox">
+              <div className="calloutContent">
+                <h3 className="calloutTitle">Mentee Callouts</h3>
+                <p className="calloutSubtitle">Add to your calendar!</p>
+                <div className="calloutDates">
+                  <button className="date" onClick={() => addToCalendar('August 28th')}>August 28th</button>
+                  <span className="separator">&</span>
+                  <button className="date" onClick={() => addToCalendar('September 2nd')}>September 2nd</button>
+                </div>
+              </div>
+            </div>
+            {/* <a href="https://forms.gle/SHWpxka2bq4numTV8" target="_blank"><button>Apply to be a mentee!</button></a> */}
           </div>
           <div className="headerOne" style={{ display: `${displayOne}` }}>
             <h2 className="bannerHeader">Prior to starting their projects, mentors and mentees meet at our pairing night event to figure out who they would work best with.</h2>
