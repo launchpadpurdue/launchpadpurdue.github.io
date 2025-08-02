@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.524fe1f8.css",
-    "main.js": "/static/js/main.7b55197f.js",
+    "main.js": "/static/js/main.610c4a76.js",
     "static/media/okisugiyama.png": "/static/media/okisugiyama.634838e41396ea9b7261.png",
     "static/media/srushtivaidyanathan.jpg": "/static/media/srushtivaidyanathan.081e04c3bcc71a766bad.jpg",
     "static/media/gallery1.jpg": "/static/media/gallery1.59d16d1a5203d8345146.jpg",
@@ -36,9 +36,9 @@
     "static/media/visvshah.png": "/static/media/visvshah.6a3d423d2c82a1b3fe14.png",
     "static/media/dwayneasare.png": "/static/media/dwayneasare.535a966eb95f80312c5d.png",
     "static/media/aryanwadhwani.png": "/static/media/aryanwadhwani.08c2dfd7f4dbed0f4b04.png",
-    "static/media/shrinivas.JPG": "/static/media/shrinivas.d33d1df9cc9df2004764.JPG",
     "static/media/joeypowers.png": "/static/media/joeypowers.a813450f0b3ef77b2da9.png",
     "static/media/arielledong.png": "/static/media/arielledong.73076c7528ec5fc570a3.png",
+    "static/media/dev.jpeg": "/static/media/dev.bff954216ae5ab595922.jpeg",
     "static/media/boilerhunt.jpeg": "/static/media/boilerhunt.d752d7c8f8f65027ac58.jpeg",
     "static/media/putMeOn.png": "/static/media/putMeOn.1ee9dc6beb4475bb0f72.png",
     "static/media/akshayakumar.png": "/static/media/akshayakumar.291208fa5749211c9b00.png",
@@ -54,10 +54,10 @@
     "static/media/xtern.png": "/static/media/xtern.93a75b51c760f07ddb24.png",
     "index.html": "/index.html",
     "main.524fe1f8.css.map": "/static/css/main.524fe1f8.css.map",
-    "main.7b55197f.js.map": "/static/js/main.7b55197f.js.map"
+    "main.610c4a76.js.map": "/static/js/main.610c4a76.js.map"
   },
   "entrypoints": [
     "static/css/main.524fe1f8.css",
-    "static/js/main.7b55197f.js"
+    "static/js/main.610c4a76.js"
   ]
 }
