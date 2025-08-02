@@ -11,8 +11,8 @@ import putMeOn from './putMeOn.png';
 import colorPalette from './colorPalette.png';
 import githubIcon from './githubIcon.png';
 import Stephan from './stephan.jpeg';
-import Shrinivas from './shrinivas.JPG';
 import Nilisha from './nilisha.jpg';
+import Dev from './dev.png';
 
 export default function Home() {
 
@@ -193,12 +193,11 @@ export default function Home() {
         <h1>Testimonials</h1>
         <h5>Here is what some past mentors and mentees have to say about LaunchPad.</h5>
         <div className="testimonials">
-
           <div className="testimonial">
-            <img src={Shrinivas} alt="" />
-            <h3>Shrinivas Venkatesan</h3>
-            <h5 className="participation"><i>Mentee '21, Mentor '22</i></h5>
-            <p>My favorite part of LaunchPad was how supportive and conducive the environment was for me to develop my first meaningful project. My mentor and I were able to create a good working relationship that enabled me to enhance and develop my technical and creative skills.<br /><br />Furthermore, during my time as a mentor last year, I was able to provide the knowledge and expertise that I had gained over the course of my time here at Purdue to my mentee and help him navigate and transition to life at college.</p>
+            <img src={Dev} alt="" />
+            <h3>Dev Patel</h3>
+            <h5 className="participation"><i>Mentor '24</i></h5>
+            <p>Although I never had the chance to be a mentee, I’m grateful I joined Launchpad as a mentor. Mentoring gave me the chance to help my mentee navigate their freshman year more smoothly, sharing advice and tips I wish I had known to make their start in a technical field more rewarding. Launchpad really is what you make of it. Whether you’re a mentor or mentee, the more effort you put in, the more you will grow. Beyond the mentor-mentee connection, it’s a welcoming community where everyone can make connections and learn something new, regardless of experience.</p>
           </div>
           <div className="testimonial">
             <img src={Stephan} alt="" />
