@@ -211,7 +211,6 @@ export default function Home() {
             <h5 className="participation"><i>Mentee '21, Mentor '22, '23</i></h5>
             <p>LaunchPad provided me with a valuable experience as a mentee as well as a mentor. As a mentee, I learned new and valuable technical skills, while as a mentor, I had the privilege of sharing my knowledge and experience. I also got the opportunity to network with like-minded people in CS.<br /><br />I highly recommend the LaunchPad program to anyone looking to gain new skills and make meaningful connections!</p>
           </div>
-
         </div>
       </div>
     </div>
