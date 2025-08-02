@@ -12,7 +12,7 @@ import colorPalette from './colorPalette.png';
 import githubIcon from './githubIcon.png';
 import Stephan from './stephan.jpeg';
 import Nilisha from './nilisha.jpg';
-import Dev from './dev.png';
+import Dev from './dev.jpeg';
 
 export default function Home() {
 
