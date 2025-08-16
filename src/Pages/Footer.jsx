@@ -11,9 +11,9 @@ export default function Navbar() {
     <div className="footer">
       <p>Copyright 2024 ┃ LaunchPad ┃ All rights reserved.</p>
       <div className='socials'>
-        <a className='instagram' href="https://www.instagram.com/launchpadpurdue/" target="_blank"><InstagramIcon /></a>
-        <a className='linkedIn' href="https://www.linkedin.com/company/launchpad-purdue-university/" target="_blank"><LinkedInIcon /></a>
-        <a className='email' href="mailto:launchpadpurdue@gmail.com" target="_blank"><EmailIcon /></a>
+        <a className='instagram' href="https://www.instagram.com/launchpadpurdue/" target="_blank" rel="noreferrer"><InstagramIcon /></a>
+        <a className='linkedIn' href="https://www.linkedin.com/company/launchpad-purdue-university/" target="_blank" rel="noreferrer"><LinkedInIcon /></a>
+        <a className='email' href="mailto:launchpadpurdue@gmail.com" target="_blank" rel="noreferrer"><EmailIcon /></a>
       </div>
     </div>
   )

@@ -54,7 +54,7 @@ export default function Team() {
               <h5>Daniel Tian</h5>
               <p>President</p>
             </div>
-            <a href="https://www.linkedin.com/in/danieljtian/" target="_blank">
+            <a href="https://www.linkedin.com/in/danieljtian/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -73,7 +73,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/srushti-vaidyanathan/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -87,7 +87,7 @@ export default function Team() {
               <h5>Alex Liu</h5>
               <p>Events</p>
             </div>
-            <a href="https://www.linkedin.com/in/alexxliu/" target="_blank">
+            <a href="https://www.linkedin.com/in/alexxliu/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -98,7 +98,7 @@ export default function Team() {
             <div className="profileText">
               <h5>Dwayne Asare</h5>
             </div>
-            <a href="https://www.linkedin.com/in/dasare467/" target="_blank">
+            <a href="https://www.linkedin.com/in/dasare467/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -116,7 +116,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/joseph-daugherty/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -131,7 +131,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/katelynchen12/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -144,7 +144,7 @@ export default function Team() {
             <div>
               <h5>Sanya Mehra</h5>
             </div>
-            <a href="https://www.linkedin.com/in/sanyamehra/" target="_blank">
+            <a href="https://www.linkedin.com/in/sanyamehra/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -155,7 +155,7 @@ export default function Team() {
             <div>
               <h5>Sean Lee</h5>
             </div>
-            <a href="https://www.linkedin.com/in/seandlee18/" target="_blank">
+            <a href="https://www.linkedin.com/in/seandlee18/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -169,7 +169,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/seohyun-lee-886905174/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -184,7 +184,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/jack-jiang-17bb17263/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -203,7 +203,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/shrinivas-venkatesan/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -216,7 +216,7 @@ export default function Team() {
             <div>
               <h5>Visv Shah</h5>
             </div>
-            <a href="https://www.linkedin.com/in/visvshah/" target="_blank">
+            <a href="https://www.linkedin.com/in/visvshah/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -230,7 +230,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/nina-gruteser/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -245,7 +245,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/deepikaramesh1107?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -258,7 +258,7 @@ export default function Team() {
             <div>
               <h5>Nathan Cho</h5>
             </div>
-            <a href="https://www.linkedin.com/in/cho621/" target="_blank">
+            <a href="https://www.linkedin.com/in/cho621/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -272,7 +272,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/congyan-amy-guo/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -287,7 +287,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/celina-liuu/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -302,7 +302,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/oki-sugiyama634/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -315,7 +315,7 @@ export default function Team() {
             <div>
               <h5>Nick Wu</h5>
             </div>
-            <a href="https://www.linkedin.com/in/nick-wu5/" target="_blank">
+            <a href="https://www.linkedin.com/in/nick-wu5/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -327,7 +327,7 @@ export default function Team() {
             <div>
               <h5>Melinda Yong</h5>
             </div>
-            <a href="https://www.linkedin.com/in/melindayong/" target="_blank">
+            <a href="https://www.linkedin.com/in/melindayong/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -343,7 +343,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/akshaya-kumar-/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -358,7 +358,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/arielle-dong-5a3a2a254/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -371,7 +371,7 @@ export default function Team() {
             <div>
               <h5>Aryan Wadhwani</h5>
             </div>
-            <a href="https://www.linkedin.com/in/aryansw/" target="_blank">
+            <a href="https://www.linkedin.com/in/aryansw/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -385,7 +385,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/elise-a-miller/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -398,7 +398,7 @@ export default function Team() {
             <div>
               <h5>Ishaan Raja</h5>
             </div>
-            <a href="https://www.linkedin.com/in/ishaan-raja/" target="_blank">
+            <a href="https://www.linkedin.com/in/ishaan-raja/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -412,7 +412,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/jisoo-kim-1891991a9/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -425,7 +425,7 @@ export default function Team() {
             <div>
               <h5>Joey Powers</h5>
             </div>
-            <a href="https://www.linkedin.com/in/joeyjpowers/" target="_blank">
+            <a href="https://www.linkedin.com/in/joeyjpowers/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -443,7 +443,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/rohanpurandare/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -458,7 +458,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/vidya-vuppala/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -471,7 +471,7 @@ export default function Team() {
             <div>
               <h5>Joie Yeung</h5>
             </div>
-            <a href="https://www.linkedin.com/in/joie-yeung/" target="_blank">
+            <a href="https://www.linkedin.com/in/joie-yeung/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>
@@ -485,7 +485,7 @@ export default function Team() {
             </div>
             <a
               href="https://www.linkedin.com/in/ayushi-mohanty-20a9181b1/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <LinkedInIcon className="LinkedIn" />
             </a>
@@ -497,7 +497,7 @@ export default function Team() {
             <div>
               <h5>Evelyn Chen</h5>
             </div>
-            <a href="https://www.linkedin.com/in/evelynchen5/" target="_blank">
+            <a href="https://www.linkedin.com/in/evelynchen5/" target="_blank" rel="noreferrer">
               <LinkedInIcon className="LinkedIn" />
             </a>
           </div>

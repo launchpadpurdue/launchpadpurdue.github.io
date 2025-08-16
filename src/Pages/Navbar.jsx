@@ -4,7 +4,6 @@ import logo from './LaunchPad Icon.png'
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  var activity = "active";
 
   const toggleNavClass = () => {
     var navRightElement = document.getElementById("navRight");
@@ -18,15 +17,15 @@ export default function Navbar() {
       <div className="mobile">
 
         <div className="navLeft">
-          <div><a href="/"><img src={logo} /></a></div>
+          <div><a href="/"><img src={logo} alt="LaunchPad Logo" /></a></div>
           <div><a href="/"><h1><span style={{ color: '#FF5600' }}>Launch</span><span style={{ color: '#0095f4' }}>Pad</span></h1></a></div>
         </div>
 
-        <a id="burger" onClick={toggleNavClass} className="toggle-button burger burgerinitial">
+        <button id="burger" onClick={toggleNavClass} className="toggle-button burger burgerinitial">
           <span className="bar line1"></span>
           <span className="bar line2"></span>
           <span className="bar line3"></span>
-        </a>
+        </button>
 
       </div>
 

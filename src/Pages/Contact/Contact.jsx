@@ -14,7 +14,7 @@ export default function Contact() {
       </div>
       <div className="formContainer" data-aos="flip-left">
         <div className="formImage">
-          <img src={formimage} className="pic" alt="" />
+          <img src={formimage} className="pic" alt="Students collaborating on a project in a modern workspace" />
         </div>
         <div className="actualForm">
           <form onsubmit="setTimeout(cleareverything, 10);" action="https://formsubmit.co/launchpadpurdue@gmail.com" method="POST">

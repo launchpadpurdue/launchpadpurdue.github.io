@@ -133,13 +133,13 @@ export default function Home() {
 
         <div className='normalProj odd'>
           <div className="projImageContainer">
-            <a href="https://github.com/visvshah/bioboards" target="_blank">
-              <img className="projImage" src={bioBoards} alt="" />
+            <a href="https://github.com/visvshah/bioboards" target="_blank" rel="noreferrer">
+              <img className="projImage" src={bioBoards} alt="Screenshot of BioBoards platform showing custom board creation interface" />
               <div className="centeredOverlay">Visit the Github Repositoty</div>
             </a>
           </div>
           <div className="projDesc">
-            <a href="https://github.com/visvshah/bioboards" target="_blank"><img className="github" src={githubIcon} width="30px" /></a>
+            <a href="https://github.com/visvshah/bioboards" target="_blank" rel="noreferrer"><img className="github" src={githubIcon} width="30px" alt="GitHub repository link" /></a>
             <h2>Bioboards - <i>Visv Shah</i></h2>
             <p>BioBoards is a platform that allows users to create a custom “board” and share it through a link in their social media bio (similar to Linktree or VSCO).</p>
           </div>
@@ -147,13 +147,13 @@ export default function Home() {
 
         <div className='normalProj even'>
           <div className="projDesc">
-            <a href="https://github.com/dasare467/Put-Me-On" target="_blank"><img className="github" src={githubIcon} width="30px" /></a>
+            <a href="https://github.com/dasare467/Put-Me-On" target="_blank" rel="noreferrer"><img className="github" src={githubIcon} width="30px" alt="GitHub repository link" /></a>
             <h2>Put Me On - <i>Dwayne Asare</i></h2>
             <p>Put Me On is a web application that allows users to share their Spotify playlists with others, and like each other's playlists. The app is built using React for the frontend and Flask for the backend, and leverages the Spotify API to retrieve playlist details.</p>
           </div>
           <div className="projImageContainer">
-            <a href="https://github.com/dasare467/Put-Me-On" target="_blank">
-              <img className="projImage" src={putMeOn} alt="" />
+            <a href="https://github.com/dasare467/Put-Me-On" target="_blank" rel="noreferrer">
+              <img className="projImage" src={putMeOn} alt="Screenshot of Put Me On web application showing Spotify playlist sharing interface" />
               <div className="centeredOverlay">Visit the Github Repositoty</div>
             </a>
           </div>
@@ -161,13 +161,13 @@ export default function Home() {
 
         <div className='normalProj odd'>
           <div className="projImageContainer">
-            <a href="https://github.com/PeterS-Kang/BoilerHunt-v2" target="_blank">
-              <img className="projImage" src={boilerHunt} alt="" />
+            <a href="https://github.com/PeterS-Kang/BoilerHunt-v2" target="_blank" rel="noreferrer">
+              <img className="projImage" src={boilerHunt} alt="Screenshot of BoilerHunt mobile app showing interactive Purdue campus guide" />
               <div className="centeredOverlay">Visit the Github Repositoty</div>
             </a>
           </div>
           <div className="projDesc">
-            <a href="https://github.com/PeterS-Kang/BoilerHunt-v2" target="_blank"><img className="github" src={githubIcon} width="30px" /></a>
+            <a href="https://github.com/PeterS-Kang/BoilerHunt-v2" target="_blank" rel="noreferrer"><img className="github" src={githubIcon} width="30px" alt="GitHub repository link" /></a>
             <h2>Boilerhunt - <i>Peter Kang</i></h2>
             <p>Boilerhunt is an interactive mobile guide of Purdue campus that encourages students to explore campus and go to new places.</p>
           </div>
@@ -175,14 +175,14 @@ export default function Home() {
 
         <div className='normalProj even'>
           <div className="projDesc">
-            <a href="https://github.com/njsumi/Playlist-Cover-Generator" target="_blank"><img className="github" src={githubIcon} width="30px" /></a>
+            <a href="https://github.com/njsumi/Playlist-Cover-Generator" target="_blank" rel="noreferrer"><img className="github" src={githubIcon} width="30px" alt="GitHub repository link" /></a>
             <h2>Color Palette - <i>Nina Gruteser</i></h2>
             <p>Color Palette is a website where users can get unique playlist cover images for their playlists. The website takes a Spotify playlist URL and extracts features such as the energy, time signature, tempo, and danceability of the songs.</p>
           </div>
 
           <div className="projImageContainer">
-            <a href="https://github.com/njsumi/Playlist-Cover-Generator" target="_blank">
-              <img className="projImage" src={colorPalette} alt="" />
+            <a href="https://github.com/njsumi/Playlist-Cover-Generator" target="_blank" rel="noreferrer">
+              <img className="projImage" src={colorPalette} alt="Screenshot of Color Palette website showing playlist cover generation interface" />
               <div className="centeredOverlay">Visit the Github Repositoty</div>
             </a>
           </div>
@@ -194,19 +194,19 @@ export default function Home() {
         <h5>Here is what some past mentors and mentees have to say about LaunchPad.</h5>
         <div className="testimonials">
           <div className="testimonial">
-            <img src={Dev} alt="" />
+            <img src={Dev} alt="Portrait of Dev Patel" />
             <h3>Dev Patel</h3>
             <h5 className="participation"><i>Mentor '24</i></h5>
             <p>Although I never had the chance to be a mentee, I’m grateful I joined Launchpad as a mentor. Mentoring gave me the chance to help my mentee navigate their freshman year more smoothly, sharing advice and tips I wish I had known to make their start in a technical field more rewarding. Launchpad really is what you make of it. Whether you’re a mentor or mentee, the more effort you put in, the more you will grow. Beyond the mentor-mentee connection, it’s a welcoming community where everyone can make connections and learn something new, regardless of experience.</p>
           </div>
           <div className="testimonial">
-            <img src={Stephan} alt="" />
+            <img src={Stephan} alt="Portrait of Stephen Feria" />
             <h3>Stephen Feria</h3>
             <h5 className="participation"><i>Mentee '20, Mentor '21, '22, '23</i></h5>
             <p>LaunchPad has been an exceptional organization that has had a profound impact on me since my freshman year. The absolute best part of LaunchPad, for me, has been the opportunity to immerse myself in various projects.<br /><br />As a mentor, I relished in the chance to contemplate the high-level design decisions that went into my mentees' projects. And as a mentee myself, I experienced the entire design process, from its inception to its completion, while being guided by a talented mentor. In both roles, I derived immense satisfaction from working on diverse projects that spanned across various realms of computer science.</p>
           </div>
           <div className="testimonial">
-            <img src={Nilisha} alt="" />
+            <img src={Nilisha} alt="Portrait of Nilisha Bhandari" />
             <h3>Nilisha Bhandari</h3>
             <h5 className="participation"><i>Mentee '21, Mentor '22, '23</i></h5>
             <p>LaunchPad provided me with a valuable experience as a mentee as well as a mentor. As a mentee, I learned new and valuable technical skills, while as a mentor, I had the privilege of sharing my knowledge and experience. I also got the opportunity to network with like-minded people in CS.<br /><br />I highly recommend the LaunchPad program to anyone looking to gain new skills and make meaningful connections!</p>

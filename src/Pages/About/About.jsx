@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./about.css"
 import groupPic from './Group Picture.jpg';
 import PeopleIcon from '@mui/icons-material/People';
@@ -13,7 +13,7 @@ export default function About() {
     <div className="about pageContainer">
       <div className="ourMission">
         <h1>We are <span className="title">LaunchPad</span>.</h1>
-        <img src={groupPic} alt="" />
+        <img src={groupPic} alt="LaunchPad team members" />
         <h2>Our Mission</h2>
         <p>LaunchPad is a community of computer science and data science students at Purdue University dedicated to learning, building, and growing together. We provide a one-on-one, semester-long mentorship program to help freshmen students hit the ground running. We pair each incoming student with a talented upperclassman mentor who will introduce them to the CS/DS community at Purdue and guide them in creating a technical project of their choosing.
           <br /><br />
@@ -41,7 +41,7 @@ export default function About() {
       
       <div className="applyToday">
         <h3>Are you ready to join us? Fill out the mentee application form!</h3>
-        <a href="https://forms.gle/SHWpxka2bq4numTV8" target="_blank"><button>Get Started</button></a>
+        <a href="https://forms.gle/SHWpxka2bq4numTV8" target="_blank" rel="noreferrer"><button>Get Started</button></a>
       </div>
     
     

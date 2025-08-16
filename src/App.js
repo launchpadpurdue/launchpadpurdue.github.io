@@ -1,5 +1,4 @@
 import './App.css';
-import { useState } from 'react';
 import Navbar from './Pages/Navbar';
 import Footer from './Pages/Footer';
 import Home from './Pages/Home/Home';
@@ -9,7 +8,6 @@ import Faq from './Pages/FAQ/Faq';
 import Sponsors from './Pages/Sponsors/Sponsors';
 import Team from './Pages/Team/Team';
 import Received from './Pages/Received/Received';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 import React, { useEffect } from "react";

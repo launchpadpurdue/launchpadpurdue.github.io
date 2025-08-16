@@ -16,32 +16,32 @@ export default function Sponsors() {
     <div className='sponsors pageContainer'>
 
       <h1 className='title'> Corporate Sponsors </h1>
-      <img src={back} className="background" alt="" />
+      <img src={back} className="background" alt="Elegant geometric background design with interconnected lines and nodes" />
 
       <p>
       LaunchPad is committed to hosting engaging events for our mentors and mentees. A substantial part of these events' success is from the generosity of our corporate sponsors.
         <br /><br />
-        Our corporate sponsors help us organize events, provide food, and ensure LaunchPad continues providing fun, free, and educational opportunities for students. LanuchPad sponsors can simultaneously support our work and receive exposure from our knowledgeable students, who are excited by technology's endless possibilities and eager to expand their horizons, among other benefits. Learn more about our sponsorship opportunities in our <a href="https://drive.google.com/file/d/1SLgKCQAMUmMWrkxCraTo-mLFsAD7PvQo/view?usp=sharing" target="_blank">sponsorship packet</a>.
+        Our corporate sponsors help us organize events, provide food, and ensure LaunchPad continues providing fun, free, and educational opportunities for students. LanuchPad sponsors can simultaneously support our work and receive exposure from our knowledgeable students, who are excited by technology's endless possibilities and eager to expand their horizons, among other benefits. Learn more about our sponsorship opportunities in our <a href="https://drive.google.com/file/d/1SLgKCQAMUmMWrkxCraTo-mLFsAD7PvQo/view?usp=sharing" target="_blank" rel="noreferrer">sponsorship packet</a>.
       </p>
 
       <div className='prev-sponsors' data-aos="flip-up">
         <div className='prev-text'>Past Sponsors</div>
 
         <div className='sponsorsContainer'>
-          <div><a href="https://www.att.com/" target='_blank'>
+          <div><a href="https://www.att.com/" target='_blank' rel="noreferrer">
             <img src={att} className="pic" alt="AT&T Logo" />
           </a></div>
             
 
-          <div><a href="https://corporate.comcast.com/" target='_blank'>
+          <div><a href="https://corporate.comcast.com/" target='_blank' rel="noreferrer">
             <img src={comcast} className="pic" alt="Comcast Logo" />
           </a></div>
 
-          <div><a href="https://www.northropgrumman.com/" target='_blank'>
+          <div><a href="https://www.northropgrumman.com/" target='_blank' rel="noreferrer">
             <img src={nthg} className="pic" alt="Northrop Grumman Logo" />
           </a></div>
 
-          <div><a href="https://techpoint.org/xtern/" target='_blank'>
+          <div><a href="https://techpoint.org/xtern/" target='_blank' rel="noreferrer">
             <img src={xtern} className="pic" alt="Xtern Logo" />
           </a></div>
         </div>
