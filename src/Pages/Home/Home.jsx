@@ -30,11 +30,13 @@ export default function Home() {
   const [current, changeCurrent] = useState(0);
 
   const generateCalendarUrl = (date, title) => {
-    const eventDate = new Date(date);
-    const dateString = eventDate.toISOString().split('T')[0].replace(/-/g, '');
+    const eventDate = new Date(date + 'T19:30:00-04:00');
+    const endDate = new Date(date + 'T20:30:00-04:00');
     
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${dateString}/${dateString}&details=${encodeURIComponent('LaunchPad Mentee Callout - Learn more about our mentorship program! Time and location details will be provided closer to the event.')}&location=${encodeURIComponent('Purdue University')}`;
+    const startTime = eventDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const endTime = endDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
     
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startTime}/${endTime}&details=${encodeURIComponent('LaunchPad Mentee Callout - Come join us to learn more about Launchpad, meet club members, and more! \n\nFollow us on Instagram @launchpadPurdue for updates!')}&location=${encodeURIComponent('Wilmeth Active Learning Center (WALC), 340 Centennial Mall Dr, West Lafayette, IN 47907, USA')}`; 
     return googleCalendarUrl;
   };
 
