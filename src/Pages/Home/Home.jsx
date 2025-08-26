@@ -108,7 +108,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* <a href="https://forms.gle/SHWpxka2bq4numTV8" target="_blank"><button>Apply to be a mentee!</button></a> */}
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeb8Nq9QDzGpXUKkqx_XKhNg573Cwz6fuO2ieyD4D3DX7qKhQ/viewform" target="_blank"><button>Apply to be a mentee!</button></a>
           </div>
           <div className="headerOne" style={{ display: `${displayOne}` }}>
             <h2 className="bannerHeader">Prior to starting their projects, mentors and mentees meet at our pairing night event to figure out who they would work best with.</h2>
