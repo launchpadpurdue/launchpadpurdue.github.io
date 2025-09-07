@@ -29,30 +29,30 @@ export default function Home() {
 
   const [current, changeCurrent] = useState(0);
 
-  const generateCalendarUrl = (date, title) => {
-    const eventDate = new Date(date + 'T19:30:00-04:00');
-    const endDate = new Date(date + 'T20:30:00-04:00');
+  // const generateCalendarUrl = (date, title) => {
+  //   const eventDate = new Date(date + 'T19:30:00-04:00');
+  //   const endDate = new Date(date + 'T20:30:00-04:00');
     
-    const startTime = eventDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    const endTime = endDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  //   const startTime = eventDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  //   const endTime = endDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
     
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startTime}/${endTime}&details=${encodeURIComponent('LaunchPad Mentee Callout - Come join us to learn more about Launchpad, meet club members, and more! \n\nFollow us on Instagram @launchpadPurdue for updates!')}&location=${encodeURIComponent('Wilmeth Active Learning Center (WALC), 340 Centennial Mall Dr, West Lafayette, IN 47907, USA')}`; 
-    return googleCalendarUrl;
-  };
+  //   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startTime}/${endTime}&details=${encodeURIComponent('LaunchPad Mentee Callout - Come join us to learn more about Launchpad, meet club members, and more! \n\nFollow us on Instagram @launchpadPurdue for updates!')}&location=${encodeURIComponent('Wilmeth Active Learning Center (WALC), 340 Centennial Mall Dr, West Lafayette, IN 47907, USA')}`; 
+  //   return googleCalendarUrl;
+  // };
 
-  const addToCalendar = (dateStr) => {
-    const currentYear = new Date().getFullYear();
-    let eventDate;
+  // const addToCalendar = (dateStr) => {
+  //   const currentYear = new Date().getFullYear();
+  //   let eventDate;
     
-    if (dateStr === 'August 28th') {
-      eventDate = `${currentYear}-08-28`;
-    } else if (dateStr === 'September 2nd') {
-      eventDate = `${currentYear}-09-02`;
-    }
+  //   if (dateStr === 'August 28th') {
+  //     eventDate = `${currentYear}-08-28`;
+  //   } else if (dateStr === 'September 2nd') {
+  //     eventDate = `${currentYear}-09-02`;
+  //   }
     
-    const calendarUrl = generateCalendarUrl(eventDate, `LaunchPad Mentee Callout - ${dateStr}`);
-    window.open(calendarUrl, '_blank');
-  };
+  //   const calendarUrl = generateCalendarUrl(eventDate, `LaunchPad Mentee Callout - ${dateStr}`);
+  //   window.open(calendarUrl, '_blank');
+  // };
 
   if (current === 0) {
     displayZero = "block";
@@ -97,18 +97,15 @@ export default function Home() {
           <div className="headerZero" style={{ display: `${displayZero}` }}>
             <h2 className="bannerTitle">LaunchPad</h2>
             <h2 className="bannerHeader">LaunchPad is an organization at Purdue that offers a one-on-one mentorship program, events, and technical project guidance to incoming students, aiming to provide them with the necessary knowledge and connections to thrive during their time here.</h2>
+
+
             <div className="calloutBox">
               <div className="calloutContent">
-                <h3 className="calloutTitle">Mentee Callouts</h3>
-                <p className="calloutSubtitle">Add to your calendar!</p>
-                <div className="calloutDates">
-                  <button className="date" onClick={() => addToCalendar('August 28th')}>August 28th</button>
-                  <span className="separator">&</span>
-                  <button className="date" onClick={() => addToCalendar('September 2nd')}>September 2nd</button>
-                </div>
+                <h3 className="calloutTitle">Mentee Application Closed!</h3>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeb8Nq9QDzGpXUKkqx_XKhNg573Cwz6fuO2ieyD4D3DX7qKhQ/viewform" target="_blank" rel="noreferrer"><button>Mentee Application Form</button></a>
               </div>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeb8Nq9QDzGpXUKkqx_XKhNg573Cwz6fuO2ieyD4D3DX7qKhQ/viewform" target="_blank" rel="noreferrer"><button>Apply to be a mentee!</button></a>
+
           </div>
           <div className="headerOne" style={{ display: `${displayOne}` }}>
             <h2 className="bannerHeader">Prior to starting their projects, mentors and mentees meet at our pairing night event to figure out who they would work best with.</h2>
