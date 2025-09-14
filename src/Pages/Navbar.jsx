@@ -36,6 +36,7 @@ export default function Navbar() {
           <li><a href="/#/faq"><button component={Link} className="signin">FAQs</button></a></li>
           <li><a href="/#/sponsors"><button component={Link} className="signin">Sponsors</button></a></li>
           <li><a href="/#/team"><button component={Link} className="signin">Team</button></a></li>
+          <li><a href="/#/leaderboard"><button component={Link} className="signin">Leaderboard</button></a></li>
           <li><a href="/#/contact"><button component={Link} className="signin">Contact</button></a></li>
         </ul>
       </div>

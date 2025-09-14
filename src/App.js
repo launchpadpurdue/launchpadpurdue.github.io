@@ -8,6 +8,7 @@ import Faq from './Pages/FAQ/Faq';
 import Sponsors from './Pages/Sponsors/Sponsors';
 import Team from './Pages/Team/Team';
 import Received from './Pages/Received/Received';
+import Leaderboard from './Pages/Leaderboard/Leaderboard';
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 import React, { useEffect } from "react";
@@ -34,6 +35,7 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/sponsors" element={<Sponsors />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/received" element={<Received />} />
         </Routes>
         <Footer />
