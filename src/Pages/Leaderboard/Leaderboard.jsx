@@ -8,6 +8,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { db } from '../../firebase/config';
 import { collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function Leaderboard() {
   document.title = "Leaderboard - LaunchPad";
@@ -21,6 +22,11 @@ export default function Leaderboard() {
   const [adminPassword, setAdminPassword] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
   const [editingTeam, setEditingTeam] = useState(null);
+  const [rankingHistory, setRankingHistory] = useState([]);
+  const [showChart, setShowChart] = useState(true);
+  const [selectedTimeframe, setSelectedTimeframe] = useState('all');
+  const [filteredHistory, setFilteredHistory] = useState([]);
+  const [selectedChartType, setSelectedChartType] = useState('ranking');
   const [submissionForm, setSubmissionForm] = useState({
     teamName: '',
     eventAttendance: 0,
@@ -39,45 +45,149 @@ export default function Leaderboard() {
     const teamsCollection = collection(db, 'teams');
     const q = query(teamsCollection, orderBy('totalScore', 'desc'));
 
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const teamsData = snapshot.docs.map((doc, index) => ({
-        id: doc.id,
-        ...doc.data(),
-        ranking: index + 1
-      }));
+    const unsubscribe = onSnapshot(q,
+      (snapshot) => {
+        const teamsData = snapshot.docs.map((doc, index) => ({
+          id: doc.id,
+          ...doc.data(),
+          ranking: index + 1
+        }));
 
-      teamsData.forEach((team, index) => {
-        const previousRanking = team.previousRanking || index + 1;
-        team.rankingChange = previousRanking - (index + 1);
+        teamsData.forEach((team, index) => {
+          const previousRanking = team.previousRanking || index + 1;
+          team.rankingChange = previousRanking - (index + 1);
+        });
+
+        setTeams(teamsData);
+      },
+      (error) => {
+        console.error('Error fetching teams:', error);
       });
 
-      setTeams(teamsData);
+    // Load ranking history
+    const historyCollection = collection(db, 'rankingHistory');
+    const historyQuery = query(historyCollection, orderBy('timestamp', 'desc'));
+
+    const historyUnsubscribe = onSnapshot(historyQuery,
+      (snapshot) => {
+        const historyData = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+
+      // Transform history data for the chart
+      // Get all unique dates (no limit) and sort chronologically
+      const uniqueDates = [...new Set(historyData.map(h => h.timestamp))].sort((a, b) => new Date(a) - new Date(b));
+
+      if (uniqueDates.length === 0) {
+        setRankingHistory([]);
+        setFilteredHistory([]);
+        return;
+      }
+
+      // Create chart data for all historical points
+      const chartData = uniqueDates.map(timestamp => {
+        const dataPoint = {
+          timestamp: timestamp,
+          date: new Date(timestamp).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          }),
+          fullDate: new Date(timestamp)
+        };
+
+        // Find data for this timestamp
+        const dataAtTime = historyData.filter(h => h.timestamp === timestamp);
+        dataAtTime.forEach(entry => {
+          if (entry.teamName) {
+            // Store all metrics for each team
+            dataPoint[`${entry.teamName}_ranking`] = entry.ranking;
+            dataPoint[`${entry.teamName}_totalScore`] = entry.totalScore || 0;
+            dataPoint[`${entry.teamName}_eventAttendance`] = entry.eventAttendance || 0;
+            dataPoint[`${entry.teamName}_projectProgress`] = entry.projectProgress || 0;
+            dataPoint[`${entry.teamName}_launchpadEvents`] = entry.launchpadEvents || 0;
+            dataPoint[`${entry.teamName}_outsideEvents`] = entry.outsideEvents || 0;
+          }
+        });
+
+        return dataPoint;
+      });
+
+      setRankingHistory(chartData);
+      setFilteredHistory(chartData);
+    },
+    (error) => {
+      console.error('Error fetching ranking history:', error);
     });
 
     const pendingCollection = collection(db, 'pendingUpdates');
-    const pendingUnsubscribe = onSnapshot(pendingCollection, (snapshot) => {
-      const pendingData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setPendingUpdates(pendingData);
-    });
+    const pendingUnsubscribe = onSnapshot(pendingCollection,
+      (snapshot) => {
+        const pendingData = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setPendingUpdates(pendingData);
+      },
+      (error) => {
+        console.error('Error fetching pending updates:', error);
+      });
 
     const registeredTeamsCollection = collection(db, 'registeredTeams');
-    const registeredTeamsUnsubscribe = onSnapshot(registeredTeamsCollection, (snapshot) => {
-      const registeredTeamsData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setRegisteredTeams(registeredTeamsData);
-    });
+    const registeredTeamsUnsubscribe = onSnapshot(registeredTeamsCollection,
+      (snapshot) => {
+        const registeredTeamsData = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        setRegisteredTeams(registeredTeamsData);
+      },
+      (error) => {
+        console.error('Error fetching registered teams:', error);
+      });
 
     return () => {
       unsubscribe();
+      historyUnsubscribe();
       pendingUnsubscribe();
       registeredTeamsUnsubscribe();
     };
   }, []);
+
+  // Filter history based on selected timeframe
+  useEffect(() => {
+    if (rankingHistory.length === 0) {
+      setFilteredHistory([]);
+      return;
+    }
+
+    const now = new Date();
+    let filteredData = rankingHistory;
+
+    switch (selectedTimeframe) {
+      case 'week':
+        const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+        filteredData = rankingHistory.filter(entry => entry.fullDate >= weekAgo);
+        break;
+      case 'month':
+        const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+        filteredData = rankingHistory.filter(entry => entry.fullDate >= monthAgo);
+        break;
+      case 'recent':
+        // Show last 20 entries for performance
+        filteredData = rankingHistory.slice(-20);
+        break;
+      case 'all':
+      default:
+        filteredData = rankingHistory;
+        break;
+    }
+
+    setFilteredHistory(filteredData);
+  }, [rankingHistory, selectedTimeframe]);
 
   const calculateTotalScore = (team) => {
     return (team.eventAttendance || 0) +
@@ -214,10 +324,36 @@ export default function Leaderboard() {
     }
   };
 
+  const saveRankingSnapshot = async () => {
+    // Save current rankings and scores to history
+    const timestamp = new Date().toISOString();
+    const batch = [];
+
+    for (const team of teams) {
+      batch.push(
+        addDoc(collection(db, 'rankingHistory'), {
+          teamName: team.teamName,
+          ranking: team.ranking,
+          totalScore: team.totalScore,
+          eventAttendance: team.eventAttendance || 0,
+          projectProgress: team.projectProgress || 0,
+          launchpadEvents: team.launchpadEvents || 0,
+          outsideEvents: team.outsideEvents || 0,
+          timestamp: timestamp
+        })
+      );
+    }
+
+    await Promise.all(batch);
+  };
+
   const handleApproveUpdate = async (update) => {
     if (!isAdmin) return;
 
     try {
+      // Save current rankings before making changes
+      await saveRankingSnapshot();
+
       const existingTeam = teams.find(t => t.teamName === update.teamName);
 
       if (existingTeam) {
@@ -290,6 +426,9 @@ export default function Leaderboard() {
 
     if (editingTeam === team.id) {
       try {
+        // Save current rankings before making changes
+        await saveRankingSnapshot();
+
         const teamRef = doc(db, 'teams', team.id);
         await updateDoc(teamRef, {
           eventAttendance: team.eventAttendance,
@@ -312,7 +451,8 @@ export default function Leaderboard() {
 
   const handleAdminLogin = (e) => {
     e.preventDefault();
-    if (adminPassword === 'launchpad2025admin') {
+    const correctPassword = process.env.REACT_APP_ADMIN_PASSWORD || 'launchpad2025admin';
+    if (adminPassword === correctPassword) {
       setIsAdmin(true);
       setShowAdminPanel(false);
       setAdminPassword('');
@@ -328,11 +468,29 @@ export default function Leaderboard() {
     return <RemoveIcon className="ranking-same" />;
   };
 
-  const getScoreChange = (current, previous) => {
-    const change = current - (previous || 0);
-    if (change > 0) return <span className="score-up">+{change}</span>;
-    if (change < 0) return <span className="score-down">{change}</span>;
-    return <span className="score-same">-</span>;
+
+  const getChartTitle = (chartType) => {
+    switch (chartType) {
+      case 'ranking': return 'Rankings';
+      case 'totalScore': return 'Total Score';
+      case 'eventAttendance': return 'Event Attendance';
+      case 'projectProgress': return 'Project Progress';
+      case 'launchpadEvents': return 'LaunchPad Events';
+      case 'outsideEvents': return 'Outside Events';
+      default: return 'Rankings';
+    }
+  };
+
+  const getYAxisLabel = (chartType) => {
+    switch (chartType) {
+      case 'ranking': return 'Ranking Position';
+      case 'totalScore': return 'Total Score Points';
+      case 'eventAttendance': return 'Event Attendance Points';
+      case 'projectProgress': return 'Project Progress Points';
+      case 'launchpadEvents': return 'LaunchPad Events Points';
+      case 'outsideEvents': return 'Outside Events Points';
+      default: return 'Ranking Position';
+    }
   };
 
   return (
@@ -341,6 +499,99 @@ export default function Leaderboard() {
       <h5 className="subheader">
         Track your team's progress and compete with other groups!
       </h5>
+
+      {/* Ranking Changes Chart */}
+      {teams.length > 0 && rankingHistory.length > 0 && (
+        <div className="ranking-chart-container">
+          <div className="chart-header">
+            <h3>Team Analytics Over Time</h3>
+            <div className="chart-controls">
+              <select
+                value={selectedChartType}
+                onChange={(e) => setSelectedChartType(e.target.value)}
+                className="chart-type-selector"
+              >
+                <option value="ranking">Rankings</option>
+                <option value="totalScore">Total Score</option>
+                <option value="eventAttendance">Event Attendance</option>
+                <option value="projectProgress">Project Progress</option>
+                <option value="launchpadEvents">LaunchPad Events</option>
+                <option value="outsideEvents">Outside Events</option>
+              </select>
+              <select
+                value={selectedTimeframe}
+                onChange={(e) => setSelectedTimeframe(e.target.value)}
+                className="timeframe-selector"
+              >
+                <option value="all">All Time</option>
+                <option value="month">Last 30 Days</option>
+                <option value="week">Last 7 Days</option>
+                <option value="recent">Recent Updates (Last 20)</option>
+              </select>
+              <button
+                className="toggle-chart-btn"
+                onClick={() => setShowChart(!showChart)}
+              >
+                {showChart ? 'Hide Chart' : 'Show Chart'}
+              </button>
+            </div>
+          </div>
+          {showChart && (
+            <div className="chart-info">
+              <p>Showing {filteredHistory.length} snapshots | Chart: {getChartTitle(selectedChartType)} | Displaying top 5 teams</p>
+            </div>
+          )}
+          {showChart && (
+            <ResponsiveContainer width="100%" height={500}>
+              <LineChart
+                data={filteredHistory}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 80,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis
+                  dataKey="date"
+                  angle={-45}
+                  textAnchor="end"
+                  height={120}
+                  interval={filteredHistory.length > 50 ? Math.floor(filteredHistory.length / 20) : 0}
+                />
+                <YAxis
+                  reversed={selectedChartType === 'ranking'}
+                  domain={selectedChartType === 'ranking' ? [1, 'dataMax'] : ['dataMin', 'dataMax']}
+                  label={{ value: getYAxisLabel(selectedChartType), angle: -90, position: 'insideLeft' }}
+                />
+                <Tooltip
+                  labelFormatter={(value, payload) => {
+                    if (payload && payload[0] && payload[0].payload) {
+                      const fullDate = new Date(payload[0].payload.timestamp);
+                      return fullDate.toLocaleString();
+                    }
+                    return value;
+                  }}
+                />
+                <Legend />
+                {teams.slice(0, 5).map((team, index) => (
+                  <Line
+                    key={team.id}
+                    type="monotone"
+                    dataKey={`${team.teamName}_${selectedChartType}`}
+                    stroke={`hsl(${index * 72}, 70%, 50%)`}
+                    strokeWidth={2}
+                    dot={filteredHistory.length <= 50 ? { r: 4 } : false}
+                    activeDot={{ r: 6 }}
+                    connectNulls
+                  />
+                ))}
+              </LineChart>
+            </ResponsiveContainer>
+          )}
+        </div>
+      )}
 
       <div className="leaderboard-actions">
         <button
@@ -536,7 +787,6 @@ export default function Leaderboard() {
               <th>Ranking</th>
               <th><ArrowUpwardIcon fontSize="small" /><ArrowDownwardIcon fontSize="small" /></th>
               <th>Team Name</th>
-              <th>Score</th>
               <th>Event Attendance</th>
               <th>Project Progress</th>
               <th>LaunchPad Events</th>
@@ -551,11 +801,6 @@ export default function Leaderboard() {
                 <td className="ranking-cell">{team.ranking}</td>
                 <td className="change-cell">{getRankingIcon(team.rankingChange)}</td>
                 <td className="team-name-cell">{team.teamName}</td>
-                <td className="score-change-cell">
-                  {getScoreChange(team.totalScore, team.previousScores ?
-                    team.previousScores.eventAttendance + team.previousScores.projectProgress +
-                    team.previousScores.launchpadEvents + team.previousScores.outsideEvents : 0)}
-                </td>
                 <td>
                   {editingTeam === team.id ? (
                     <input
