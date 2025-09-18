@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.524fe1f8.css",
-    "main.js": "/static/js/main.610c4a76.js",
+    "main.css": "/static/css/main.8b4b249f.css",
+    "main.js": "/static/js/main.35b4738c.js",
     "static/media/okisugiyama.png": "/static/media/okisugiyama.634838e41396ea9b7261.png",
     "static/media/srushtivaidyanathan.jpg": "/static/media/srushtivaidyanathan.081e04c3bcc71a766bad.jpg",
     "static/media/gallery1.jpg": "/static/media/gallery1.59d16d1a5203d8345146.jpg",
@@ -53,11 +53,11 @@
     "static/media/NorthropGrummanLogo.png": "/static/media/NorthropGrummanLogo.5f8cbba12f5ba1d70b34.png",
     "static/media/xtern.png": "/static/media/xtern.93a75b51c760f07ddb24.png",
     "index.html": "/index.html",
-    "main.524fe1f8.css.map": "/static/css/main.524fe1f8.css.map",
-    "main.610c4a76.js.map": "/static/js/main.610c4a76.js.map"
+    "main.8b4b249f.css.map": "/static/css/main.8b4b249f.css.map",
+    "main.35b4738c.js.map": "/static/js/main.35b4738c.js.map"
   },
   "entrypoints": [
-    "static/css/main.524fe1f8.css",
-    "static/js/main.610c4a76.js"
+    "static/css/main.8b4b249f.css",
+    "static/js/main.35b4738c.js"
   ]
 }
