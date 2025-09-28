@@ -546,7 +546,7 @@ export default function Leaderboard() {
           </div>
           {showChart && (
             <div className="chart-info">
-              <p>Showing {filteredHistory.length} snapshots | Chart: {getChartTitle(selectedChartType)} | Displaying top 5 teams</p>
+              <p>Showing {filteredHistory.length} snapshots | Chart: {getChartTitle(selectedChartType)} | Displaying all teams</p>
             </div>
           )}
           {showChart && (
@@ -583,12 +583,12 @@ export default function Leaderboard() {
                   }}
                 />
                 <Legend />
-                {teams.slice(0, 5).map((team, index) => (
+                {teams.map((team, index) => (
                   <Line
                     key={team.id}
                     type="monotone"
                     dataKey={`${team.teamName}_${selectedChartType}`}
-                    stroke={`hsl(${index * 72}, 70%, 50%)`}
+                    stroke={`hsl(${index * 36}, 70%, 50%)`}
                     strokeWidth={2}
                     dot={filteredHistory.length <= 50 ? { r: 4 } : false}
                     activeDot={{ r: 6 }}
