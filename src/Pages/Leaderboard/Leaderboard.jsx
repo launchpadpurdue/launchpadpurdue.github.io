@@ -29,6 +29,7 @@ export default function Leaderboard() {
   const [selectedTimeframe, setSelectedTimeframe] = useState('all');
   const [filteredHistory, setFilteredHistory] = useState([]);
   const [selectedChartType, setSelectedChartType] = useState('ranking');
+  const [previousRankings, setPreviousRankings] = useState(new Map());
   const [submissionForm, setSubmissionForm] = useState({
     teamName: '',
     eventAttendance: 0,
@@ -80,7 +81,39 @@ export default function Leaderboard() {
           team.rankingChange = previousRanking - (index + 1);
         });
 
+        // Check if rankings have actually changed
+        const currentRankings = new Map();
+        teamsData.forEach(team => {
+          currentRankings.set(team.teamName, team.ranking);
+        });
+
+        let rankingsChanged = false;
+        if (previousRankings.size === 0) {
+          // First load
+          rankingsChanged = true;
+        } else {
+          // Compare with previous rankings
+          for (const [teamName, ranking] of currentRankings) {
+            if (previousRankings.get(teamName) !== ranking) {
+              rankingsChanged = true;
+              break;
+            }
+          }
+          // Check if teams were added or removed
+          if (!rankingsChanged && previousRankings.size !== currentRankings.size) {
+            rankingsChanged = true;
+          }
+        }
+
+        // Always update teams data
         setTeams(teamsData);
+
+        // Only trigger chart update if rankings changed
+        if (rankingsChanged) {
+          setPreviousRankings(currentRankings);
+          // Force chart re-render by updating a timestamp
+          setRankingHistory(prev => [...prev]);
+        }
       },
       (error) => {
         console.error('Error fetching teams:', error);
