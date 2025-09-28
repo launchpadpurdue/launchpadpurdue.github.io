@@ -12,20 +12,37 @@ export class GoogleSheetsService {
     try {
       // Use the CSV export URL which doesn't require API key for public sheets
       const csvUrl = `https://docs.google.com/spreadsheets/d/${this.spreadsheetId}/export?format=csv&gid=${this.gid}`;
+      console.log('Fetching from Google Sheets URL:', csvUrl);
       
       const response = await fetch(csvUrl);
+      console.log('Google Sheets response status:', response.status);
+      
       if (!response.ok) {
+        if (response.status === 401 || response.status === 403) {
+          throw new Error('Google Sheets is not publicly accessible. Please make the sheet public or provide an API key.');
+        }
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
       const csvText = await response.text();
-      return this.parseCsvData(csvText);
+      console.log('CSV data received, length:', csvText.length);
+      console.log('First 500 characters:', csvText.substring(0, 500));
+      
+      const teams = this.parseCsvData(csvText);
+      console.log('Parsed teams:', teams);
+      return teams;
     } catch (error) {
       console.error('Error fetching Google Sheets data:', error);
       
       // Fallback: try using the Google Sheets API if available
       if (this.apiKey) {
+        console.log('Trying fallback API method...');
         return this.fetchUsingApi();
+      }
+      
+      // If no API key and sheet is not public, provide helpful error
+      if (error.message.includes('not publicly accessible')) {
+        throw new Error('Google Sheets access failed. To fix this:\n1. Make the sheet publicly viewable, OR\n2. Set REACT_APP_GOOGLE_SHEETS_API_KEY environment variable with a valid API key');
       }
       
       throw error;

@@ -20,13 +20,20 @@ export class DataSyncService {
     
     try {
       console.log('Starting sync from Google Sheets...');
+      console.log('Google Sheets service configured:', this.googleSheetsService.isConfigured());
       
       // Fetch data from Google Sheets
       const sheetsData = await this.googleSheetsService.fetchLeaderboardData();
       console.log('Fetched data from Google Sheets:', sheetsData);
 
       if (!sheetsData || sheetsData.length === 0) {
-        throw new Error('No data received from Google Sheets');
+        console.warn('No data received from Google Sheets - this might be normal if the sheet is empty');
+        return { 
+          success: true, 
+          message: 'Sync completed but no teams found in sheet',
+          timestamp: new Date(),
+          teamsCount: 0
+        };
       }
 
       // Save current state to history before updating
@@ -47,6 +54,7 @@ export class DataSyncService {
 
     } catch (error) {
       console.error('Error during sync:', error);
+      console.error('Error stack:', error.stack);
       return { 
         success: false, 
         message: `Sync failed: ${error.message}`,
