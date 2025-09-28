@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./leaderboard.css";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -29,7 +29,7 @@ export default function Leaderboard() {
   const [selectedTimeframe, setSelectedTimeframe] = useState('all');
   const [filteredHistory, setFilteredHistory] = useState([]);
   const [selectedChartType, setSelectedChartType] = useState('ranking');
-  const [previousRankings, setPreviousRankings] = useState(new Map());
+  const previousRankingsRef = useRef(new Map());
   const [submissionForm, setSubmissionForm] = useState({
     teamName: '',
     eventAttendance: 0,
@@ -88,19 +88,19 @@ export default function Leaderboard() {
         });
 
         let rankingsChanged = false;
-        if (previousRankings.size === 0) {
+        if (previousRankingsRef.current.size === 0) {
           // First load
           rankingsChanged = true;
         } else {
           // Compare with previous rankings
           for (const [teamName, ranking] of currentRankings) {
-            if (previousRankings.get(teamName) !== ranking) {
+            if (previousRankingsRef.current.get(teamName) !== ranking) {
               rankingsChanged = true;
               break;
             }
           }
           // Check if teams were added or removed
-          if (!rankingsChanged && previousRankings.size !== currentRankings.size) {
+          if (!rankingsChanged && previousRankingsRef.current.size !== currentRankings.size) {
             rankingsChanged = true;
           }
         }
@@ -110,7 +110,7 @@ export default function Leaderboard() {
 
         // Only trigger chart update if rankings changed
         if (rankingsChanged) {
-          setPreviousRankings(currentRankings);
+          previousRankingsRef.current = currentRankings;
           // Force chart re-render by updating a timestamp
           setRankingHistory(prev => [...prev]);
         }
