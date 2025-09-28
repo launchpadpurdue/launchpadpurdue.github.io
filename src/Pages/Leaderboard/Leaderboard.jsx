@@ -46,6 +46,27 @@ export default function Leaderboard() {
   });
 
   useEffect(() => {
+    // Initialize sync service and start auto-sync
+    const initializeSync = async () => {
+      try {
+        console.log('Initializing Google Sheets sync...');
+        
+        // Start auto-sync every 10 minutes
+        dataSyncService.startAutoSync(10);
+        
+        // Perform initial sync
+        const syncResult = await dataSyncService.triggerManualSync();
+        if (syncResult.success) {
+          setSyncMessage(`✓ Initial sync completed: ${syncResult.teamsCount} teams`);
+        } else {
+          setSyncMessage(`⚠ Initial sync failed: ${syncResult.message}`);
+        }
+      } catch (error) {
+        console.error('Error initializing sync:', error);
+        setSyncMessage(`✗ Sync initialization failed: ${error.message}`);
+      }
+    };
+
     const teamsCollection = collection(db, 'teams');
     const q = query(teamsCollection, orderBy('totalScore', 'desc'));
 
@@ -152,13 +173,17 @@ export default function Leaderboard() {
         console.error('Error fetching registered teams:', error);
       });
 
+    // Initialize sync
+    initializeSync();
+
     return () => {
       unsubscribe();
       historyUnsubscribe();
       pendingUnsubscribe();
       registeredTeamsUnsubscribe();
+      dataSyncService.stopAutoSync();
     };
-  }, []);
+  }, [dataSyncService]);
 
   // Filter history based on selected timeframe
   useEffect(() => {
