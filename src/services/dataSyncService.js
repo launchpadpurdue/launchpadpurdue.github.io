@@ -1,4 +1,4 @@
-import { collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy, onSnapshot, getDocs, where, writeBatch } from 'firebase/firestore';
+import { collection, doc, query, orderBy, getDocs, writeBatch } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import GoogleSheetsService from './googleSheetsService';
 

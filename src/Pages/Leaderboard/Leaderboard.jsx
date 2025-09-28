@@ -37,7 +37,7 @@ export default function Leaderboard() {
     notes: ''
   });
   const [dataSyncService] = useState(() => new DataSyncService());
-  const [syncStatus, setSyncStatus] = useState({ isConfigured: false, lastSyncTime: null, syncInProgress: false });
+  const [syncStatus] = useState({ isConfigured: false, lastSyncTime: null, syncInProgress: false });
   const [syncMessage, setSyncMessage] = useState('');
   const [selectedTeamCurrentScores, setSelectedTeamCurrentScores] = useState(null);
   const [newTeamForm, setNewTeamForm] = useState({
