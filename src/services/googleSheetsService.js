@@ -78,8 +78,12 @@ export class GoogleSheetsService {
     
     for (let i = 1; i < lines.length; i++) {
       const row = this.parseCsvRow(lines[i]);
-      if (row.length >= headers.length && row[0] && row[0].trim()) {
+      console.log(`Row ${i}:`, row);
+      
+      if (row.length > 0 && row[0] && row[0].trim()) {
         const rowData = this.parseRowData(headers, row);
+        console.log(`Parsed row ${i}:`, rowData);
+        
         if (rowData && rowData.teamName) {
           const teamKey = rowData.teamName.toLowerCase().trim();
           
@@ -91,15 +95,19 @@ export class GoogleSheetsService {
               outsideEvents: 0,
               totalScore: 0
             });
+            console.log(`Created new team: ${rowData.teamName}`);
           }
           
           const team = teamMap.get(teamKey);
           
           // Add points based on activity type
           if (rowData.activityType && rowData.pointValue > 0) {
+            console.log(`Processing activity: ${rowData.activityType}, points: ${rowData.pointValue}`);
+            
             if (rowData.activityType.includes('lp meeting attendance') || 
                 rowData.activityType.includes('meeting attendance')) {
               team.eventAttendance += rowData.pointValue;
+              console.log(`Added ${rowData.pointValue} to event attendance for ${team.teamName}`);
             } else if (rowData.activityType.includes('external family hangout') ||
                        rowData.activityType.includes('family hangout') ||
                        rowData.activityType.includes('study together') ||
@@ -107,6 +115,7 @@ export class GoogleSheetsService {
                        rowData.activityType.includes('lunch') ||
                        rowData.activityType.includes('sports')) {
               team.outsideEvents += rowData.pointValue;
+              console.log(`Added ${rowData.pointValue} to outside events for ${team.teamName}`);
             }
           }
           
