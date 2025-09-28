@@ -87,11 +87,13 @@ export default function Leaderboard() {
           currentRankings.set(team.teamName, team.ranking);
         });
 
-        let rankingsChanged = false;
-        if (previousRankingsRef.current.size === 0) {
-          // First load
-          rankingsChanged = true;
-        } else {
+        // Always update teams data
+        setTeams(teamsData);
+
+        // Check if rankings have actually changed (skip initial load)
+        if (previousRankingsRef.current.size > 0) {
+          let rankingsChanged = false;
+          
           // Compare with previous rankings
           for (const [teamName, ranking] of currentRankings) {
             if (previousRankingsRef.current.get(teamName) !== ranking) {
@@ -99,21 +101,20 @@ export default function Leaderboard() {
               break;
             }
           }
+          
           // Check if teams were added or removed
           if (!rankingsChanged && previousRankingsRef.current.size !== currentRankings.size) {
             rankingsChanged = true;
           }
-        }
 
-        // Always update teams data
-        setTeams(teamsData);
-
-        // Only trigger chart update if rankings changed
-        if (rankingsChanged) {
-          previousRankingsRef.current = currentRankings;
-          // Force chart re-render by updating a timestamp
-          setRankingHistory(prev => [...prev]);
+          // Only trigger chart update if rankings actually changed
+          if (rankingsChanged) {
+            setRankingHistory(prev => [...prev]);
+          }
         }
+        
+        // Store current rankings for next comparison
+        previousRankingsRef.current = currentRankings;
       },
       (error) => {
         console.error('Error fetching teams:', error);
