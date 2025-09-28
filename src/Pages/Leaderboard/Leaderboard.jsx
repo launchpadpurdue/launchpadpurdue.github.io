@@ -6,9 +6,11 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import EditIcon from '@mui/icons-material/Edit';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
+import SyncIcon from '@mui/icons-material/Sync';
 import { db } from '../../firebase/config';
 import { collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import DataSyncService from '../../services/dataSyncService';
 
 export default function Leaderboard() {
   document.title = "Leaderboard - LaunchPad";
@@ -31,10 +33,12 @@ export default function Leaderboard() {
     teamName: '',
     eventAttendance: 0,
     projectProgress: 0,
-    launchpadEvents: 0,
     outsideEvents: 0,
     notes: ''
   });
+  const [dataSyncService] = useState(() => new DataSyncService());
+  const [syncStatus, setSyncStatus] = useState({ isConfigured: false, lastSyncTime: null, syncInProgress: false });
+  const [syncMessage, setSyncMessage] = useState('');
   const [selectedTeamCurrentScores, setSelectedTeamCurrentScores] = useState(null);
   const [newTeamForm, setNewTeamForm] = useState({
     teamName: '',
@@ -108,7 +112,6 @@ export default function Leaderboard() {
             dataPoint[`${entry.teamName}_totalScore`] = entry.totalScore || 0;
             dataPoint[`${entry.teamName}_eventAttendance`] = entry.eventAttendance || 0;
             dataPoint[`${entry.teamName}_projectProgress`] = entry.projectProgress || 0;
-            dataPoint[`${entry.teamName}_launchpadEvents`] = entry.launchpadEvents || 0;
             dataPoint[`${entry.teamName}_outsideEvents`] = entry.outsideEvents || 0;
           }
         });
@@ -192,7 +195,6 @@ export default function Leaderboard() {
   const calculateTotalScore = (team) => {
     return (team.eventAttendance || 0) +
            (team.projectProgress || 0) +
-           (team.launchpadEvents || 0) +
            (team.outsideEvents || 0);
   };
 
@@ -205,13 +207,11 @@ export default function Leaderboard() {
       setSelectedTeamCurrentScores(existingTeam ? {
         eventAttendance: existingTeam.eventAttendance || 0,
         projectProgress: existingTeam.projectProgress || 0,
-        launchpadEvents: existingTeam.launchpadEvents || 0,
         outsideEvents: existingTeam.outsideEvents || 0,
         totalScore: existingTeam.totalScore || 0
       } : {
         eventAttendance: 0,
         projectProgress: 0,
-        launchpadEvents: 0,
         outsideEvents: 0,
         totalScore: 0
       });
@@ -276,14 +276,12 @@ export default function Leaderboard() {
       const currentScores = selectedTeamCurrentScores || {
         eventAttendance: 0,
         projectProgress: 0,
-        launchpadEvents: 0,
         outsideEvents: 0
       };
 
       const newScores = {
         eventAttendance: currentScores.eventAttendance + (submissionForm.eventAttendance || 0),
         projectProgress: currentScores.projectProgress + (submissionForm.projectProgress || 0),
-        launchpadEvents: currentScores.launchpadEvents + (submissionForm.launchpadEvents || 0),
         outsideEvents: currentScores.outsideEvents + (submissionForm.outsideEvents || 0)
       };
 
@@ -291,13 +289,11 @@ export default function Leaderboard() {
         teamName: submissionForm.teamName,
         eventAttendance: newScores.eventAttendance,
         projectProgress: newScores.projectProgress,
-        launchpadEvents: newScores.launchpadEvents,
         outsideEvents: newScores.outsideEvents,
         totalScore: calculateTotalScore(newScores),
         pointsAdded: {
           eventAttendance: submissionForm.eventAttendance || 0,
           projectProgress: submissionForm.projectProgress || 0,
-          launchpadEvents: submissionForm.launchpadEvents || 0,
           outsideEvents: submissionForm.outsideEvents || 0
         },
         notes: submissionForm.notes,
@@ -312,7 +308,6 @@ export default function Leaderboard() {
         teamName: '',
         eventAttendance: 0,
         projectProgress: 0,
-        launchpadEvents: 0,
         outsideEvents: 0,
         notes: ''
       });
@@ -337,7 +332,6 @@ export default function Leaderboard() {
           totalScore: team.totalScore,
           eventAttendance: team.eventAttendance || 0,
           projectProgress: team.projectProgress || 0,
-          launchpadEvents: team.launchpadEvents || 0,
           outsideEvents: team.outsideEvents || 0,
           timestamp: timestamp
         })
@@ -361,14 +355,12 @@ export default function Leaderboard() {
         const previousScores = {
           eventAttendance: existingTeam.eventAttendance || 0,
           projectProgress: existingTeam.projectProgress || 0,
-          launchpadEvents: existingTeam.launchpadEvents || 0,
           outsideEvents: existingTeam.outsideEvents || 0
         };
 
         const newScores = {
           eventAttendance: update.eventAttendance,
           projectProgress: update.projectProgress,
-          launchpadEvents: update.launchpadEvents,
           outsideEvents: update.outsideEvents,
           totalScore: calculateTotalScore(update),
           previousRanking: existingTeam.ranking,
@@ -383,14 +375,12 @@ export default function Leaderboard() {
           teamName: update.teamName,
           eventAttendance: update.eventAttendance,
           projectProgress: update.projectProgress,
-          launchpadEvents: update.launchpadEvents,
           outsideEvents: update.outsideEvents,
           totalScore: calculateTotalScore(update),
           previousRanking: teams.length + 1,
           previousScores: {
             eventAttendance: 0,
             projectProgress: 0,
-            launchpadEvents: 0,
             outsideEvents: 0
           },
           lastUpdated: new Date().toISOString()
@@ -433,7 +423,6 @@ export default function Leaderboard() {
         await updateDoc(teamRef, {
           eventAttendance: team.eventAttendance,
           projectProgress: team.projectProgress,
-          launchpadEvents: team.launchpadEvents,
           outsideEvents: team.outsideEvents,
           totalScore: calculateTotalScore(team),
           lastUpdated: new Date().toISOString()
@@ -475,7 +464,6 @@ export default function Leaderboard() {
       case 'totalScore': return 'Total Score';
       case 'eventAttendance': return 'Event Attendance';
       case 'projectProgress': return 'Project Progress';
-      case 'launchpadEvents': return 'LaunchPad Events';
       case 'outsideEvents': return 'Outside Events';
       default: return 'Rankings';
     }
@@ -487,7 +475,6 @@ export default function Leaderboard() {
       case 'totalScore': return 'Total Score Points';
       case 'eventAttendance': return 'Event Attendance Points';
       case 'projectProgress': return 'Project Progress Points';
-      case 'launchpadEvents': return 'LaunchPad Events Points';
       case 'outsideEvents': return 'Outside Events Points';
       default: return 'Ranking Position';
     }
@@ -515,7 +502,6 @@ export default function Leaderboard() {
                 <option value="totalScore">Total Score</option>
                 <option value="eventAttendance">Event Attendance</option>
                 <option value="projectProgress">Project Progress</option>
-                <option value="launchpadEvents">LaunchPad Events</option>
                 <option value="outsideEvents">Outside Events</option>
               </select>
               <select
@@ -592,6 +578,32 @@ export default function Leaderboard() {
           )}
         </div>
       )}
+
+      {/* Sync Status and Manual Sync */}
+      <div className="sync-status-container">
+        <div className="sync-status">
+          <span className="sync-label">Data Source: Google Sheets</span>
+          {syncMessage && <span className="sync-message">{syncMessage}</span>}
+          <span className="last-sync">Last sync: {dataSyncService.getLastSyncInfo().formattedLastSync}</span>
+        </div>
+        {isAdmin && (
+          <button
+            className="sync-btn"
+            onClick={async () => {
+              setSyncMessage('🔄 Syncing from Google Sheets...');
+              const result = await dataSyncService.triggerManualSync();
+              if (result.success) {
+                setSyncMessage(`✓ Sync completed: ${result.teamsCount} teams updated`);
+              } else {
+                setSyncMessage(`✗ Sync failed: ${result.message}`);
+              }
+            }}
+            disabled={syncStatus.syncInProgress}
+          >
+            <SyncIcon /> {syncStatus.syncInProgress ? 'Syncing...' : 'Sync Now'}
+          </button>
+        )}
+      </div>
 
       <div className="leaderboard-actions">
         <button
@@ -689,7 +701,6 @@ export default function Leaderboard() {
                 <div className="current-scores-grid">
                   <div>Event Attendance: <strong>{selectedTeamCurrentScores.eventAttendance}</strong></div>
                   <div>Project Progress: <strong>{selectedTeamCurrentScores.projectProgress}</strong></div>
-                  <div>LaunchPad Events: <strong>{selectedTeamCurrentScores.launchpadEvents}</strong></div>
                   <div>Outside Events: <strong>{selectedTeamCurrentScores.outsideEvents}</strong></div>
                   <div className="total-score">Total Score: <strong>{selectedTeamCurrentScores.totalScore}</strong></div>
                 </div>
@@ -715,16 +726,6 @@ export default function Leaderboard() {
                     min="0"
                     value={submissionForm.projectProgress}
                     onChange={(e) => setSubmissionForm({...submissionForm, projectProgress: parseInt(e.target.value) || 0})}
-                    placeholder="Points to add..."
-                  />
-                </label>
-                <label>
-                  Add LaunchPad Event Points:
-                  <input
-                    type="number"
-                    min="0"
-                    value={submissionForm.launchpadEvents}
-                    onChange={(e) => setSubmissionForm({...submissionForm, launchpadEvents: parseInt(e.target.value) || 0})}
                     placeholder="Points to add..."
                   />
                 </label>
@@ -761,9 +762,9 @@ export default function Leaderboard() {
               <div className="update-info">
                 <strong>{update.teamName}</strong>
                 {update.pointsAdded ? (
-                  <span>Adding - EA: +{update.pointsAdded.eventAttendance} | PP: +{update.pointsAdded.projectProgress} | LP: +{update.pointsAdded.launchpadEvents} | OE: +{update.pointsAdded.outsideEvents}</span>
+                  <span>Adding - EA: +{update.pointsAdded.eventAttendance} | PP: +{update.pointsAdded.projectProgress} | OE: +{update.pointsAdded.outsideEvents}</span>
                 ) : (
-                  <span>New totals - EA: {update.eventAttendance} | PP: {update.projectProgress} | LP: {update.launchpadEvents} | OE: {update.outsideEvents}</span>
+                  <span>New totals - EA: {update.eventAttendance} | PP: {update.projectProgress} | OE: {update.outsideEvents}</span>
                 )}
                 {update.notes && <p>Notes: {update.notes}</p>}
               </div>
@@ -789,7 +790,6 @@ export default function Leaderboard() {
               <th>Team Name</th>
               <th>Event Attendance</th>
               <th>Project Progress</th>
-              <th>LaunchPad Events</th>
               <th>Outside Events</th>
               <th>Total Score</th>
               {isAdmin && <th>Actions</th>}
@@ -828,20 +828,6 @@ export default function Leaderboard() {
                       }}
                     />
                   ) : team.projectProgress}
-                </td>
-                <td>
-                  {editingTeam === team.id ? (
-                    <input
-                      type="number"
-                      value={team.launchpadEvents}
-                      onChange={(e) => {
-                        const newTeams = [...teams];
-                        const index = newTeams.findIndex(t => t.id === team.id);
-                        newTeams[index].launchpadEvents = parseInt(e.target.value) || 0;
-                        setTeams(newTeams);
-                      }}
-                    />
-                  ) : team.launchpadEvents}
                 </td>
                 <td>
                   {editingTeam === team.id ? (

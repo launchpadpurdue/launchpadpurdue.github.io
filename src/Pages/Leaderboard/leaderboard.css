@@ -75,6 +75,72 @@
   text-align: center;
 }
 
+.sync-status-container {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.sync-status {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sync-label {
+  font-weight: 600;
+  color: #0095f4;
+  font-size: 16px;
+}
+
+.sync-message {
+  font-size: 14px;
+  color: #28a745;
+  font-weight: 500;
+}
+
+.last-sync {
+  font-size: 12px;
+  color: #666;
+}
+
+.sync-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #0095f4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.sync-btn:hover:not(:disabled) {
+  background-color: #0077c7;
+}
+
+.sync-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.sync-btn svg {
+  font-size: 18px;
+}
+
 .chart-header h3 {
   color: #333;
   font-size: 1.5rem;
@@ -592,5 +658,20 @@
     margin-top: 10px;
     width: 100%;
     justify-content: flex-start;
+  }
+
+  .sync-status-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .sync-status {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .sync-btn {
+    width: 100%;
   }
 }
