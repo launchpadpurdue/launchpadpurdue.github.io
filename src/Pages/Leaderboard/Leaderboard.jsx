@@ -8,7 +8,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import SyncIcon from '@mui/icons-material/Sync';
 import { db } from '../../firebase/config';
-import { collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy, onSnapshot, getDocs } from 'firebase/firestore';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import DataSyncService from '../../services/dataSyncService';
 
@@ -390,6 +390,72 @@ export default function Leaderboard() {
   };
 
   const saveRankingSnapshot = async () => {
+    // Check if we need to save history by comparing with latest entry
+    const historyCollection = collection(db, 'rankingHistory');
+    const latestHistoryQuery = query(historyCollection, orderBy('timestamp', 'desc'));
+    const latestHistorySnapshot = await getDocs(latestHistoryQuery);
+    
+    // Build current state for comparison
+    const currentState = {};
+    teams.forEach((team) => {
+      currentState[team.teamName] = {
+        ranking: team.ranking,
+        totalScore: team.totalScore,
+        eventAttendance: team.eventAttendance || 0,
+        projectProgress: team.projectProgress || 0,
+        outsideEvents: team.outsideEvents || 0
+      };
+    });
+
+    // If we have previous history, check if anything changed
+    if (!latestHistorySnapshot.empty) {
+      const latestTimestamp = latestHistorySnapshot.docs[0].data().timestamp;
+      const latestHistoryByTeam = {};
+      
+      // Group latest history by team name
+      latestHistorySnapshot.docs.forEach(doc => {
+        const data = doc.data();
+        if (data.timestamp === latestTimestamp) {
+          latestHistoryByTeam[data.teamName] = {
+            ranking: data.ranking,
+            totalScore: data.totalScore || 0,
+            eventAttendance: data.eventAttendance || 0,
+            projectProgress: data.projectProgress || 0,
+            outsideEvents: data.outsideEvents || 0
+          };
+        }
+      });
+
+      // Compare current state with latest history
+      let hasChanges = false;
+      
+      // Check if any teams have changed
+      for (const teamName in currentState) {
+        const current = currentState[teamName];
+        const previous = latestHistoryByTeam[teamName];
+        
+        if (!previous || 
+            current.ranking !== previous.ranking ||
+            current.totalScore !== previous.totalScore ||
+            current.eventAttendance !== previous.eventAttendance ||
+            current.projectProgress !== previous.projectProgress ||
+            current.outsideEvents !== previous.outsideEvents) {
+          hasChanges = true;
+          break;
+        }
+      }
+      
+      // Check if teams were added or removed
+      if (!hasChanges && Object.keys(currentState).length !== Object.keys(latestHistoryByTeam).length) {
+        hasChanges = true;
+      }
+      
+      // If no changes, skip saving
+      if (!hasChanges) {
+        return;
+      }
+    }
+
     // Save current rankings and scores to history
     const timestamp = new Date().toISOString();
     const batch = [];
