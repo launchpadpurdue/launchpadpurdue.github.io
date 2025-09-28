@@ -263,21 +263,29 @@ export class GoogleSheetsService {
       const header = headers[j].toLowerCase().trim();
       const value = row[j] ? row[j].toString().trim() : '';
       
-      // Skip LaunchPad Events column as requested
-      if (header.includes('launchpad') || header.includes('launch pad')) {
-        continue;
-      }
+      console.log(`Processing column ${j}: "${header}" = "${value}"`);
       
       // Map header to field name
       const fieldName = fieldMapping[header] || header;
+      console.log(`Mapped to field: ${fieldName}`);
+      
+      // Don't skip LaunchPad Family Name - that's our team name!
+      // Only skip columns that are actually LaunchPad Events
+      if (header.includes('launchpad event') || header.includes('launch pad event')) {
+        console.log(`Skipping LaunchPad Events column: ${header}`);
+        continue;
+      }
       
       if (fieldName === 'teamName' && value) {
         rowData.teamName = value;
         teamNameFound = true;
+        console.log(`Found team name: ${value}`);
       } else if (fieldName === 'activityType' && value) {
         rowData.activityType = value.toLowerCase();
+        console.log(`Found activity type: ${value}`);
       } else if (fieldName === 'pointValue' && value) {
         rowData.pointValue = this.parseNumericValue(value);
+        console.log(`Found point value: ${rowData.pointValue}`);
       } else if (['eventAttendance', 'projectProgress', 'outsideEvents', 'totalScore'].includes(fieldName)) {
         // Parse numeric values
         const numValue = this.parseNumericValue(value);
@@ -288,8 +296,11 @@ export class GoogleSheetsService {
       }
     }
 
+    console.log(`Row parsing result - teamNameFound: ${teamNameFound}, rowData:`, rowData);
+
     // Only return row data if it has a team name
     if (!teamNameFound || !rowData.teamName) {
+      console.log('Row rejected: no team name found');
       return null;
     }
 
