@@ -12,22 +12,16 @@ export class DataSyncService {
   // Sync data from Google Sheets to Firebase
   async syncFromGoogleSheets() {
     if (this.syncInProgress) {
-      console.log('Sync already in progress, skipping...');
       return { success: false, message: 'Sync already in progress' };
     }
 
     this.syncInProgress = true;
     
     try {
-      console.log('Starting sync from Google Sheets...');
-      console.log('Google Sheets service configured:', this.googleSheetsService.isConfigured());
-      
       // Fetch data from Google Sheets
       const sheetsData = await this.googleSheetsService.fetchLeaderboardData();
-      console.log('Fetched data from Google Sheets:', sheetsData);
 
       if (!sheetsData || sheetsData.length === 0) {
-        console.warn('No data received from Google Sheets - this might be normal if the sheet is empty');
         return { 
           success: true, 
           message: 'Sync completed but no teams found in sheet',
@@ -43,7 +37,6 @@ export class DataSyncService {
       await this.updateTeamsFromSheetsData(sheetsData);
 
       this.lastSyncTime = new Date();
-      console.log('Sync completed successfully at:', this.lastSyncTime);
 
       return { 
         success: true, 
@@ -53,8 +46,6 @@ export class DataSyncService {
       };
 
     } catch (error) {
-      console.error('Error during sync:', error);
-      console.error('Error stack:', error.stack);
       return { 
         success: false, 
         message: `Sync failed: ${error.message}`,
@@ -68,14 +59,12 @@ export class DataSyncService {
   // Save current teams state to ranking history
   async saveCurrentStateToHistory() {
     try {
-      console.log('Saving current state to history...');
       
       // Get current teams
       const teamsCollection = collection(db, 'teams');
       const snapshot = await getDocs(query(teamsCollection, orderBy('totalScore', 'desc')));
       
       if (snapshot.empty) {
-        console.log('No existing teams to save to history');
         return;
       }
 
@@ -100,10 +89,8 @@ export class DataSyncService {
       });
 
       await batch.commit();
-      console.log('Current state saved to history');
       
     } catch (error) {
-      console.error('Error saving current state to history:', error);
       throw error;
     }
   }
@@ -111,7 +98,6 @@ export class DataSyncService {
   // Update teams collection with data from Google Sheets
   async updateTeamsFromSheetsData(sheetsData) {
     try {
-      console.log('Updating teams from sheets data...');
       
       // Get existing teams
       const teamsCollection = collection(db, 'teams');
@@ -152,7 +138,6 @@ export class DataSyncService {
           };
 
           batch.update(teamRef, updateData);
-          console.log(`Updating team: ${sheetsTeam.teamName}`);
           
         } else {
           // Create new team
@@ -176,15 +161,12 @@ export class DataSyncService {
           };
 
           batch.set(newTeamRef, newTeamData);
-          console.log(`Creating new team: ${sheetsTeam.teamName}`);
         }
       }
 
       await batch.commit();
-      console.log('Teams updated successfully');
       
     } catch (error) {
-      console.error('Error updating teams from sheets data:', error);
       throw error;
     }
   }
@@ -205,11 +187,8 @@ export class DataSyncService {
     }
 
     this.autoSyncInterval = setInterval(async () => {
-      console.log(`Auto-sync triggered (every ${intervalMinutes} minutes)`);
       await this.syncFromGoogleSheets();
     }, intervalMinutes * 60 * 1000);
-
-    console.log(`Auto-sync started: every ${intervalMinutes} minutes`);
   }
 
   // Stop auto-sync
@@ -217,13 +196,11 @@ export class DataSyncService {
     if (this.autoSyncInterval) {
       clearInterval(this.autoSyncInterval);
       this.autoSyncInterval = null;
-      console.log('Auto-sync stopped');
     }
   }
 
   // Manual sync trigger
   async triggerManualSync() {
-    console.log('Manual sync triggered');
     return await this.syncFromGoogleSheets();
   }
 

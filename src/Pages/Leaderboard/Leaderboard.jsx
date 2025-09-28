@@ -49,8 +49,6 @@ export default function Leaderboard() {
     // Initialize sync service and start auto-sync
     const initializeSync = async () => {
       try {
-        console.log('Initializing Google Sheets sync...');
-        
         // Start auto-sync every 10 minutes
         dataSyncService.startAutoSync(10);
         
@@ -62,7 +60,6 @@ export default function Leaderboard() {
           setSyncMessage(`⚠ Initial sync failed: ${syncResult.message}`);
         }
       } catch (error) {
-        console.error('Error initializing sync:', error);
         setSyncMessage(`✗ Sync initialization failed: ${error.message}`);
       }
     };

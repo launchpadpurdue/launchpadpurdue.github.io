@@ -12,10 +12,8 @@ export class GoogleSheetsService {
     try {
       // Use the CSV export URL which doesn't require API key for public sheets
       const csvUrl = `https://docs.google.com/spreadsheets/d/${this.spreadsheetId}/export?format=csv&gid=${this.gid}`;
-      console.log('Fetching from Google Sheets URL:', csvUrl);
       
       const response = await fetch(csvUrl);
-      console.log('Google Sheets response status:', response.status);
       
       if (!response.ok) {
         if (response.status === 401 || response.status === 403) {
@@ -25,18 +23,10 @@ export class GoogleSheetsService {
       }
       
       const csvText = await response.text();
-      console.log('CSV data received, length:', csvText.length);
-      console.log('First 500 characters:', csvText.substring(0, 500));
-      
-      const teams = this.parseCsvData(csvText);
-      console.log('Parsed teams:', teams);
-      return teams;
+      return this.parseCsvData(csvText);
     } catch (error) {
-      console.error('Error fetching Google Sheets data:', error);
-      
       // Fallback: try using the Google Sheets API if available
       if (this.apiKey) {
-        console.log('Trying fallback API method...');
         return this.fetchUsingApi();
       }
       
@@ -71,18 +61,15 @@ export class GoogleSheetsService {
 
     // Parse header row
     const headers = this.parseCsvRow(lines[0]);
-    console.log('CSV Headers:', headers);
 
     // Parse data rows and aggregate by team
     const teamMap = new Map();
     
     for (let i = 1; i < lines.length; i++) {
       const row = this.parseCsvRow(lines[i]);
-      console.log(`Row ${i}:`, row);
       
       if (row.length > 0 && row[0] && row[0].trim()) {
         const rowData = this.parseRowData(headers, row);
-        console.log(`Parsed row ${i}:`, rowData);
         
         if (rowData && rowData.teamName) {
           const teamKey = rowData.teamName.toLowerCase().trim();
@@ -95,19 +82,15 @@ export class GoogleSheetsService {
               outsideEvents: 0,
               totalScore: 0
             });
-            console.log(`Created new team: ${rowData.teamName}`);
           }
           
           const team = teamMap.get(teamKey);
           
           // Add points based on activity type
           if (rowData.activityType && rowData.pointValue > 0) {
-            console.log(`Processing activity: ${rowData.activityType}, points: ${rowData.pointValue}`);
-            
             if (rowData.activityType.includes('lp meeting attendance') || 
                 rowData.activityType.includes('meeting attendance')) {
               team.eventAttendance += rowData.pointValue;
-              console.log(`Added ${rowData.pointValue} to event attendance for ${team.teamName}`);
             } else if (rowData.activityType.includes('external family hangout') ||
                        rowData.activityType.includes('family hangout') ||
                        rowData.activityType.includes('study together') ||
@@ -115,7 +98,6 @@ export class GoogleSheetsService {
                        rowData.activityType.includes('lunch') ||
                        rowData.activityType.includes('sports')) {
               team.outsideEvents += rowData.pointValue;
-              console.log(`Added ${rowData.pointValue} to outside events for ${team.teamName}`);
             }
           }
           
@@ -263,29 +245,22 @@ export class GoogleSheetsService {
       const header = headers[j].toLowerCase().trim();
       const value = row[j] ? row[j].toString().trim() : '';
       
-      console.log(`Processing column ${j}: "${header}" = "${value}"`);
-      
       // Map header to field name
       const fieldName = fieldMapping[header] || header;
-      console.log(`Mapped to field: ${fieldName}`);
       
       // Don't skip LaunchPad Family Name - that's our team name!
       // Only skip columns that are actually LaunchPad Events
       if (header.includes('launchpad event') || header.includes('launch pad event')) {
-        console.log(`Skipping LaunchPad Events column: ${header}`);
         continue;
       }
       
       if (fieldName === 'teamName' && value) {
         rowData.teamName = value;
         teamNameFound = true;
-        console.log(`Found team name: ${value}`);
       } else if (fieldName === 'activityType' && value) {
         rowData.activityType = value.toLowerCase();
-        console.log(`Found activity type: ${value}`);
       } else if (fieldName === 'pointValue' && value) {
         rowData.pointValue = this.parseNumericValue(value);
-        console.log(`Found point value: ${rowData.pointValue}`);
       } else if (['eventAttendance', 'projectProgress', 'outsideEvents', 'totalScore'].includes(fieldName)) {
         // Parse numeric values
         const numValue = this.parseNumericValue(value);
@@ -296,11 +271,8 @@ export class GoogleSheetsService {
       }
     }
 
-    console.log(`Row parsing result - teamNameFound: ${teamNameFound}, rowData:`, rowData);
-
     // Only return row data if it has a team name
     if (!teamNameFound || !rowData.teamName) {
-      console.log('Row rejected: no team name found');
       return null;
     }
 
