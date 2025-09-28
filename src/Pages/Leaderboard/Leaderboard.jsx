@@ -30,6 +30,7 @@ export default function Leaderboard() {
   const [filteredHistory, setFilteredHistory] = useState([]);
   const [selectedChartType, setSelectedChartType] = useState('ranking');
   const previousRankingsRef = useRef(new Map());
+  const lastHistoryUpdateRef = useRef(null);
   const [submissionForm, setSubmissionForm] = useState({
     teamName: '',
     eventAttendance: 0,
@@ -131,6 +132,19 @@ export default function Leaderboard() {
           ...doc.data()
         }));
 
+        // Check if this is just the initial load or if there's actually new data
+        const latestTimestamp = historyData.length > 0 ? historyData[0].timestamp : null;
+        
+        if (lastHistoryUpdateRef.current === null) {
+          // Initial load - set up the data but don't trigger unnecessary updates
+          lastHistoryUpdateRef.current = latestTimestamp;
+        } else if (lastHistoryUpdateRef.current === latestTimestamp) {
+          // No new data, skip processing
+          return;
+        } else {
+          // New data detected
+          lastHistoryUpdateRef.current = latestTimestamp;
+        }
 
       // Transform history data for the chart
       // Get all unique dates (no limit) and sort chronologically
