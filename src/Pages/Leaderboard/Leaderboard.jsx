@@ -9,8 +9,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import SyncIcon from '@mui/icons-material/Sync';
 import { db } from '../../firebase/config';
 import { collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy, onSnapshot, getDocs } from 'firebase/firestore';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import DataSyncService from '../../services/dataSyncService';
+import LeaderboardGraph from './LeaderboardGraph';
 
 export default function Leaderboard() {
   document.title = "Leaderboard - LaunchPad";
@@ -594,27 +594,7 @@ export default function Leaderboard() {
   };
 
 
-  const getChartTitle = (chartType) => {
-    switch (chartType) {
-      case 'ranking': return 'Rankings';
-      case 'totalScore': return 'Total Score';
-      case 'eventAttendance': return 'Event Attendance';
-      case 'projectProgress': return 'Project Progress';
-      case 'outsideEvents': return 'Outside Events';
-      default: return 'Rankings';
-    }
-  };
 
-  const getYAxisLabel = (chartType) => {
-    switch (chartType) {
-      case 'ranking': return 'Ranking Position';
-      case 'totalScore': return 'Total Score Points';
-      case 'eventAttendance': return 'Event Attendance Points';
-      case 'projectProgress': return 'Project Progress Points';
-      case 'outsideEvents': return 'Outside Events Points';
-      default: return 'Ranking Position';
-    }
-  };
 
   return (
     <div className="leaderboard pageContainer">
@@ -659,58 +639,11 @@ export default function Leaderboard() {
             </div>
           </div>
           {showChart && (
-            <div className="chart-info">
-              <p>Showing {filteredHistory.length} snapshots | Chart: {getChartTitle(selectedChartType)} | Displaying all teams</p>
-            </div>
-          )}
-          {showChart && (
-            <ResponsiveContainer width="100%" height={500}>
-              <LineChart
-                data={filteredHistory}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 80,
-                }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis
-                  dataKey="date"
-                  angle={-45}
-                  textAnchor="end"
-                  height={120}
-                  interval={filteredHistory.length > 50 ? Math.floor(filteredHistory.length / 20) : 0}
-                />
-                <YAxis
-                  reversed={selectedChartType === 'ranking'}
-                  domain={selectedChartType === 'ranking' ? [1, 'dataMax'] : ['dataMin', 'dataMax']}
-                  label={{ value: getYAxisLabel(selectedChartType), angle: -90, position: 'insideLeft' }}
-                />
-                <Tooltip
-                  labelFormatter={(value, payload) => {
-                    if (payload && payload[0] && payload[0].payload) {
-                      const fullDate = new Date(payload[0].payload.timestamp);
-                      return fullDate.toLocaleString();
-                    }
-                    return value;
-                  }}
-                />
-                <Legend />
-                {teams.map((team, index) => (
-                  <Line
-                    key={team.id}
-                    type="monotone"
-                    dataKey={`${team.teamName}_${selectedChartType}`}
-                    stroke={`hsl(${index * 36}, 70%, 50%)`}
-                    strokeWidth={2}
-                    dot={filteredHistory.length <= 50 ? { r: 4 } : false}
-                    activeDot={{ r: 6 }}
-                    connectNulls
-                  />
-                ))}
-              </LineChart>
-            </ResponsiveContainer>
+            <LeaderboardGraph 
+              data={filteredHistory} 
+              teams={teams} 
+              selectedChartType={selectedChartType} 
+            />
           )}
         </div>
       )}
