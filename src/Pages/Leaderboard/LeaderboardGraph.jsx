@@ -6,7 +6,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
   Brush,
   ReferenceLine
@@ -84,16 +83,7 @@ export default function LeaderboardGraph({ data, teams, selectedChartType = 'ran
     });
   };
 
-  const getChartTitle = (type) => {
-    switch (type) {
-      case 'ranking': return 'Rankings (Lower is Better)';
-      case 'totalScore': return 'Total Score';
-      case 'eventAttendance': return 'Event Attendance';
-      case 'projectProgress': return 'Project Progress';
-      case 'outsideEvents': return 'Outside Events';
-      default: return 'Rankings';
-    }
-  };
+
 
   const getYAxisLabel = (type) => {
     switch (type) {
