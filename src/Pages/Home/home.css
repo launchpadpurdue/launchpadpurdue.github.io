@@ -424,6 +424,12 @@
     height: 50px;
 }
 
+.home .calloutMessage {
+  margin: 0 auto 0 auto;
+  color: red;
+  text-decoration: underline;
+}
+
 @media all and (max-width: 768px) {
     .home .calloutDates {
         flex-direction: column;
