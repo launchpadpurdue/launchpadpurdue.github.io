@@ -101,8 +101,10 @@ export default function Home() {
 
             <div className="calloutBox">
               <div className="calloutContent">
-                <h3 className="calloutTitle">Mentee Application Closed!</h3>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeb8Nq9QDzGpXUKkqx_XKhNg573Cwz6fuO2ieyD4D3DX7qKhQ/viewform" target="_blank" rel="noreferrer"><button>Mentee Application Form</button></a>
+                <h3 className="calloutTitle">2026 Mentor Application is now open!</h3>
+                <h5 className="calloutMessage">Don't forget to apply by March 20!</h5>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScEUsLkpThzR6bZefsy3EMrH8pMDqiwhsEd02vg3JGaZs3Wrg/viewform" 
+                  target="_blank" rel="noreferrer"><button>Mentor Application Form</button></a>
               </div>
             </div>
 
